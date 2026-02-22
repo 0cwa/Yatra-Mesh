@@ -74,15 +74,17 @@ function App() {
     initEditor();
   }, [projectData]);
 
-  if (loading) {
-    return <div style={{ padding: 20 }}>Loading project...</div>;
-  }
-
-  if (error) {
-    return <div style={{ padding: 20, color: 'red' }}>Error: {error}</div>;
-  }
-
-  return <div id="editor" style={{ height: '100vh', width: '100%' }}></div>;
+  return (
+    <>
+      {(loading || error) && (
+        <div style={{ padding: 20, position: 'absolute', zIndex: 9999, background: '#fff' }}>
+          {loading && 'Loading project...'}
+          {error && <span style={{ color: 'red' }}>Error: {error}</span>}
+        </div>
+      )}
+      <div id="editor" style={{ height: '100vh', width: '100%' }}></div>
+    </>
+  );
 }
 
 export default App;
