@@ -21,7 +21,7 @@ Follow the design principles from the first commit (3d1364a):
 
 ```bash
 # Development server
-cd /home/x/Documents/yatra-editor
+cd /home/x/Documents/Yatra-Mesh
 npm run dev
 
 # Build for production
@@ -89,7 +89,7 @@ npm run preview
 ## Project Structure
 
 ```
-yatra-editor/
+Yatra-Mesh/
 ├── public/
 │   └── gjs-project.grapesjs    # Project data file
 ├── src/
