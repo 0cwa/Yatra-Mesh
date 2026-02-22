@@ -6,6 +6,15 @@ This document provides guidelines for agents working on the Yatra Editor codebas
 
 This is a self-hosted GrapesJS Studio Editor built with Vite + React using @grapesjs/studio-sdk.
 
+## Design Language
+
+Follow the design principles from the first commit (3d1364a):
+
+- **Minimal**: Full-viewport editor canvas, no extra UI chrome
+- **Clean styling**: Simple CSS reset, `box-sizing: border-box`, no decorative styles
+- **Functional**: Basic React hooks, straightforward state management
+- **Verbose debugging**: Console logging for development visibility
+
 ## Commands
 
 ### Yatra Editor (Vite + React)
@@ -421,3 +430,16 @@ npm run lint
 
 - The editor uses Vite on port 5173 by default
 - The SDK requires async storage callbacks even if just reading local files
+
+## Learned Skills & Agents
+
+The following domain-specific skills have been learned from previous work on this project:
+
+| Skill | Description |
+|-------|-------------|
+| `grapesjs-collapsible-accordion` | Implementing collapsible accordion components in GrapesJS |
+| `grapesjs-page-replacement` | Full page replacement patterns for AI-generated content |
+| `grapesjs-dynamic-date-sections` | Dynamic date sections with live/today/upcoming filtering |
+| `grapesjs-unified-styling` | Unified styling system with centralized CSS class management |
+
+These skills are stored in `.claude/skills/learned/` and should be referenced when implementing related features.

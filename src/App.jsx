@@ -31,12 +31,10 @@ function App() {
   useEffect(() => {
     if (!projectData) return;
 
-    let editorInstance = null;
-
     const initEditor = async () => {
       try {
         console.log('Initializing editor with project data...');
-        editorInstance = await createStudioEditor({
+        await createStudioEditor({
           root: '#editor',
           project: {
             type: 'web',
@@ -60,10 +58,12 @@ function App() {
               return projectData;
             },
           },
+          onEditor: (editor) => {
+            editorRef.current = editor;
+            console.log('Editor ready via callback');
+            setLoading(false);
+          },
         });
-        editorRef.current = editorInstance;
-        console.log('Editor initialized');
-        setLoading(false);
       } catch (err) {
         console.error('Editor init error:', err);
         setError(err.message);
@@ -72,13 +72,6 @@ function App() {
     };
 
     initEditor();
-
-    return () => {
-      if (editorInstance && typeof editorInstance.destroy === 'function') {
-        console.log('Destroying editor...');
-        editorInstance.destroy();
-      }
-    };
   }, [projectData]);
 
   if (loading) {
