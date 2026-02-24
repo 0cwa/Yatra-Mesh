@@ -35,6 +35,12 @@ npm run lint -- --fix
 
 # Preview production build
 npm run preview
+
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
 ```
 
 ## Code Style Guidelines
@@ -335,6 +341,68 @@ Valid built-in types are: `text`, `image`, `video`, `map`, `link`, `default`. Om
 | Write to `public/gjs-project.grapesjs` directly | Only the Vite plugin's `/api/save-project` handler should write this file |
 | Call `editor.setComponents()` during SDK initialization | Wait for `onEditor` callback before making any API calls |
 | Link to external assets (CDNs, Unsplash, Google Fonts) | Upload assets through the editor's asset manager and use local paths |
+| Add styles to external CSS files for canvas content | Use `editor.addStyle()` so styles are editable in Grapes Studio |
+
+### Styling Guidelines
+
+All styles applied to canvas content **must** be added via GrapesJS API to be visible and editable in the Style Manager:
+
+```jsx
+// In onEditor callback, add styles like this:
+editorRef.current.addStyle({
+  selectors: ['my-class'],
+  style: {
+    'font-size': '18px',
+    'color': '#ffffff',
+    'background': '#0b0b13'
+  }
+});
+```
+
+**Why this matters:**
+- Styles added to external CSS files (e.g., `App.css`) are not managed by GrapesJS
+- External styles won't appear in the Style Manager
+- Users cannot edit external styles through the Grapes Studio UI
+- External styles won't be included in project exports
+
+**Pattern for adding new styles:**
+1. Add styles in the `onEditor` callback using `editor.addStyle()`
+2. Use descriptive class names that match your component classes
+3. Include both the base styles and any pseudo-classes (`:hover`, `:before`, etc.)
+4. Add responsive styles using `selectorsAdd: '@media (...)'` with nested style objects
+
+```jsx
+// Example with hover states and responsive styles
+editorRef.current.addStyle([
+  {
+    selectors: ['my-button'],
+    style: {
+      'padding': '12px 24px',
+      'background': '#a06aff',
+      'color': '#ffffff'
+    }
+  },
+  {
+    selectors: ['my-button:hover'],
+    style: {
+      'background': '#ff4fa3'
+    }
+  },
+  {
+    selectors: [],
+    selectorsAdd: '@media (max-width: 768px)',
+    style: {
+      '.my-button': {
+        'padding': '10px 16px',
+        'font-size': '14px'
+      }
+    }
+  }
+]);
+```
+
+**When to use external CSS:**
+Only use `src/App.css` for React UI outside the canvas (e.g., loading states, toolbar). Canvas content styles always go through `editor.addStyle()`.
 
 ### React Integration Notes
 
@@ -373,7 +441,7 @@ return (
 ### Adding a New Component
 1. Create component file in appropriate location
 2. Import and add to parent component
-3. Add styles in CSS file
+3. Add styles via `editor.addStyle()` in `onEditor` callback (not CSS files)
 4. Test in development mode
 
 ### Modifying the Editor Configuration
@@ -409,10 +477,24 @@ Until then, **assume zero custom types exist**.
 
 ## Testing
 
-Currently no test framework is set up. If adding tests:
-- Use Vitest for unit tests (works with Vite)
-- Use React Testing Library for component tests
-- Run single test: `npx vitest run --test-name-pattern="test name"`
+Tests use Vitest. Always run tests before committing:
+- `npm test` - Run all tests
+- `npm run test:watch` - Run tests in watch mode
+
+Run this command to validate project data JSON before running the app:
+```bash
+node -e "JSON.parse(require('fs').readFileSync('public/gjs-project.grapesjs'))"
+```
+
+If you get a JSON parse error, use `jsonlint` for precise location:
+```bash
+jsonlint public/gjs-project.grapesjs
+```
+
+Common JSON issues in GrapesJS project files:
+- **Trailing commas** in arrays/objects (especially in component arrays like `head.components`)
+- The last element in an array must NOT have a trailing comma: `{"a": 1}` not `{"a": 1},`
+- Always check the line/column reported by the error - look for a `},` that should be `}` at the end of an object in an array
 
 ## Linting
 

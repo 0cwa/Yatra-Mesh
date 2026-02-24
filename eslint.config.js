@@ -26,4 +26,15 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+    files: ['tests/**/*.test.js', 'vitest.config.js'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: { ...globals.node, process: 'readonly' },
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+  },
 ])
