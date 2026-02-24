@@ -147,13 +147,12 @@ const saveProjectPlugin = {
       req.on('data', chunk => { body += chunk })
       req.on('end', () => {
         try {
-          const { project, pages } = JSON.parse(body)
+          const { project } = JSON.parse(body)
           const projectFilePath = path.join(import.meta.dirname, 'public', 'gjs-project.grapesjs')
+          const siteDir = path.join(import.meta.dirname, 'public', 'site')
           fs.writeFileSync(projectFilePath, JSON.stringify(project, null, 2))
-          if (pages?.length) {
-            generateSiteFiles(pages, true)
-            console.log(`[save] Site generated: ${pages.length} pages`)
-          }
+          const n = generateSiteFromProject(projectFilePath, siteDir, true)
+          console.log(`[save] Site generated: ${n} pages`)
           res.writeHead(200, { 'Content-Type': 'application/json' })
           res.end(JSON.stringify({ success: true }))
         } catch (err) {

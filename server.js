@@ -82,13 +82,12 @@ function autoCommit() {
 }
 
 app.post('/api/save-project', (req, res) => {
-  const { project, pages } = req.body
+  const { project } = req.body
   const filePath = path.join(__dirname, 'public', 'gjs-project.grapesjs')
+  const siteDir = path.join(__dirname, 'public', 'site')
   fs.writeFileSync(filePath, JSON.stringify(project, null, 2))
-  if (pages?.length) {
-    generateSiteFiles(pages)
-    console.log(`[save] Site generated: ${pages.length} pages`)
-  }
+  const n = generateSiteFromProject(filePath, siteDir)
+  console.log(`[save] Site generated: ${n} pages`)
   autoCommit()
   res.json({ success: true })
 })

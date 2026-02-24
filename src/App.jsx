@@ -130,29 +130,10 @@ function App() {
             autosaveChanges: 10,
             onSave: async ({ project }) => {
               console.log('Saving project...');
-              const editor = editorRef.current;
-              const allPages = editor.Pages.getAll();
-              const currentPage = editor.Pages.getSelected();
-              const sharedCss = editor.getCss();
-
-              const pages = [];
-              for (const page of allPages) {
-                editor.Pages.select(page);
-                pages.push({
-                  id: page.id,
-                  name: page.get('name'),
-                  html: editor.getHtml(),
-                  css: sharedCss,
-                });
-              }
-
-              // Restore the page the user was on
-              if (currentPage) editor.Pages.select(currentPage);
-
               const response = await fetch('/api/save-project', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ project, pages }),
+                body: JSON.stringify({ project }),
               });
               if (!response.ok) {
                 throw new Error('Failed to save project');
