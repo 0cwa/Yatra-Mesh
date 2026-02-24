@@ -1,26 +1,26 @@
 {
   "columba": {
-    "tag": "v0.8.13-beta",
-    "assetName": "columba-0.8.13-beta-universal.apk",
-    "downloadedAt": "2026-02-24T11:05:03.284Z",
-    "size": 100759230
+    "tag": "v0.8.14-beta",
+    "assetName": "columba-0.8.14-beta-universal.apk",
+    "downloadedAt": "2026-02-24T16:33:23.232Z",
+    "size": 100759290
   },
   "meshchat-linux": {
     "tag": "v2.3.0",
     "assetName": "ReticulumMeshChat-v2.3.0-linux.AppImage",
-    "downloadedAt": "2026-02-24T11:14:46.183Z",
+    "downloadedAt": "2026-02-24T16:34:29.338Z",
     "size": 162693657
   },
   "meshchat-windows": {
     "tag": "v2.3.0",
     "assetName": "ReticulumMeshChat-v2.3.0-win-portable.exe",
-    "downloadedAt": "2026-02-24T11:19:06.850Z",
+    "downloadedAt": "2026-02-24T16:33:41.206Z",
     "size": 94674330
   },
   "meshchat-mac": {
     "tag": "v2.3.0",
     "assetName": "ReticulumMeshChat-v2.3.0-mac.dmg",
-    "downloadedAt": "2026-02-24T11:22:11.372Z",
+    "downloadedAt": "2026-02-24T16:34:05.245Z",
     "size": 167121197
   }
 }
