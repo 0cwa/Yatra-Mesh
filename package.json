@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "generate-site": "node scripts/render-project.mjs"
   },
   "dependencies": {
     "@grapesjs/studio-sdk": "^1.0.58",

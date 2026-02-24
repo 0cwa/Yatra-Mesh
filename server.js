@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { execSync } from 'child_process'
+import { generateSiteFromProject } from './scripts/render-project.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -87,6 +88,18 @@ app.get('/:slug?', (req, res) => {
     res.status(404).send(placeholder)
   }
 })
+
+// Generate site from project JSON on startup if public/site/ is missing
+const siteDir = path.join(__dirname, 'public', 'site')
+const projectPath = path.join(__dirname, 'public', 'gjs-project.grapesjs')
+if (!fs.existsSync(siteDir) && fs.existsSync(projectPath)) {
+  try {
+    const n = generateSiteFromProject(projectPath, siteDir)
+    console.log(`[site] Generated ${n} pages from project JSON`)
+  } catch (err) {
+    console.error('[site] Failed to generate site on startup:', err.message)
+  }
+}
 
 app.listen(PORT, () => {
   console.log(`Site:   http://localhost:${PORT}`)

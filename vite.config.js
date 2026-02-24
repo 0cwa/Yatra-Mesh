@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import fs from 'fs'
 import path from 'path'
 import crypto from 'crypto'
+import { generateSiteFromProject } from './scripts/render-project.mjs'
 
 function toSlug(name) {
   return name
@@ -46,6 +47,18 @@ function generateSiteFiles(pages, isDev = false) {
 const saveProjectPlugin = {
   name: 'save-project',
   configureServer(server) {
+    // Generate site from project JSON on startup if public/site/ is missing
+    const siteDir = path.join(import.meta.dirname, 'public', 'site')
+    const projectPath = path.join(import.meta.dirname, 'public', 'gjs-project.grapesjs')
+    if (!fs.existsSync(siteDir) && fs.existsSync(projectPath)) {
+      try {
+        const n = generateSiteFromProject(projectPath, siteDir, true)
+        console.log(`[site] Generated ${n} pages from project JSON`)
+      } catch (err) {
+        console.error('[site] Failed to generate site on startup:', err.message)
+      }
+    }
+
     // Route /editor → /editor.html
     server.middlewares.use((req, res, next) => {
       if (req.url === '/editor' || req.url === '/editor/') {
