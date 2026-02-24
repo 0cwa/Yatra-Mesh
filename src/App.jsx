@@ -115,7 +115,18 @@ function App() {
           onEditor: (ed) => {
             editorRef.current = ed;
             injectFonts();
-            
+
+            // Override existing gjs-t-h2 styles that force right-alignment and flex
+            ed.addStyle({
+              selectors: ['gjs-t-h2'],
+              style: {
+                'text-align': 'left',
+                'display': 'block',
+                'justify-content': 'unset',
+                'align-items': 'unset'
+              }
+            });
+
             const missingStyles = [
               {
                 selectors: ['help-section'],
@@ -224,7 +235,8 @@ function App() {
                   'color': '#f3f3fb',
                   'margin-bottom': '20px',
                   'font-weight': '600',
-                  'line-height': '1.2'
+                  'line-height': '1.2',
+                  'text-align': 'left'
                 }
               },
               {
@@ -233,7 +245,8 @@ function App() {
                   'font-size': '22px',
                   'color': '#a06aff',
                   'margin': '28px 0 12px',
-                  'font-weight': '600'
+                  'font-weight': '600',
+                  'text-align': 'left'
                 }
               },
               {

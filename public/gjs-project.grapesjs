@@ -4252,7 +4252,9 @@
         "font-size": "40px",
         "line-height": "1.15",
         "letter-spacing": "0.01em",
-        "text-align": "center"
+        "text-align": "center",
+        "display": "flex",
+        "justify-content": "center"
       }
     },
     {
@@ -4791,7 +4793,9 @@
       "style": {
         "font-size": "40px",
         "line-height": "1.15",
-        "letter-spacing": "0.01em"
+        "letter-spacing": "0.01em",
+        "display": "flex",
+        "justify-content": "center"
       }
     },
     {
@@ -5822,6 +5826,52 @@
         "width": "4rem",
         "height": "4rem"
       }
+    },
+    {
+      "selectors": [
+        "#i0yics"
+      ],
+      "style": {
+        "margin-top": "4px"
+      }
+    },
+    {
+      "selectors": [
+        "#i957gk"
+      ],
+      "style": {
+        "margin-top": "4px"
+      }
+    },
+    {
+      "selectors": [
+        "#i8gk0u"
+      ],
+      "style": {
+        "margin-top": "4px"
+      }
+    },
+    {
+      "selectors": [
+        "gjs-t-h2",
+        "faq-title"
+      ],
+      "style": {
+        "text-align": "center",
+        "display": "flex",
+        "justify-content": "center"
+      }
+    },
+    {
+      "selectors": [
+        "gjs-t-h2",
+        "about-title"
+      ],
+      "style": {
+        "text-align": "center",
+        "display": "flex",
+        "justify-content": "center"
+      }
     }
   ],
   "pages": [
@@ -6341,6 +6391,9 @@
                                         "classes": [
                                           "download-title"
                                         ],
+                                        "attributes": {
+                                          "id": "iiqo1"
+                                        },
                                         "components": [
                                           {
                                             "type": "textnode",
@@ -6558,7 +6611,7 @@
                                               "download-icon"
                                             ],
                                             "attributes": {
-                                              "src": "/images/penguin-mascot-40.png",
+                                              "src": "/icons/lucide-linux.svg",
                                               "alt": "Penguin mascot icon",
                                               "loading": "lazy",
                                               "id": "i0yics"
@@ -6585,21 +6638,6 @@
                                                   "id": "ia6h22"
                                                 },
                                                 "components": [
-                                                  {
-                                                    "type": "image",
-                                                    "name": "Title Icon",
-                                                    "resizable": {
-                                                      "ratioDefault": 1
-                                                    },
-                                                    "classes": [
-                                                      "title-icon"
-                                                    ],
-                                                    "attributes": {
-                                                      "src": "/icons/lucide-linux.svg",
-                                                      "alt": "",
-                                                      "loading": "lazy"
-                                                    }
-                                                  },
                                                   {
                                                     "type": "textnode",
                                                     "content": "\n  Linux\n"
@@ -6704,7 +6742,8 @@
                                             "attributes": {
                                               "src": "/icons/lucide-apple.svg",
                                               "alt": "",
-                                              "loading": "lazy"
+                                              "loading": "lazy",
+                                              "id": "i957gk"
                                             }
                                           },
                                           {
@@ -6712,6 +6751,9 @@
                                             "classes": [
                                               "feature-content"
                                             ],
+                                            "attributes": {
+                                              "id": "icmjni"
+                                            },
                                             "components": [
                                               {
                                                 "tagName": "span",
@@ -6864,7 +6906,8 @@
                                             "attributes": {
                                               "src": "/icons/lucide-monitor.svg",
                                               "alt": "",
-                                              "loading": "lazy"
+                                              "loading": "lazy",
+                                              "id": "i8gk0u"
                                             }
                                           },
                                           {
@@ -6883,6 +6926,9 @@
                                                 "classes": [
                                                   "feature-title"
                                                 ],
+                                                "attributes": {
+                                                  "id": "irq42j"
+                                                },
                                                 "components": [
                                                   {
                                                     "type": "textnode",
