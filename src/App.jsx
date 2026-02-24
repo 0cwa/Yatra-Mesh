@@ -41,8 +41,8 @@ function App() {
       const fontFaces = [];
       localFonts.forEach(font => {
         font.weights.forEach(weight => {
-          const filename = font.name.toLowerCase() === 'inter' 
-            ? `inter-latin-${weight}` 
+          const filename = font.name.toLowerCase() === 'inter'
+            ? `inter-latin-${weight}`
             : `${font.name.toLowerCase()}-latin-${weight}`;
           fontFaces.push(`
             @font-face {
@@ -63,25 +63,29 @@ function App() {
       document.head.appendChild(mainStyle);
       console.log('Injected local fonts into document head');
 
-      // Also inject into canvas iframe after a delay
+      // Inject into canvas iframe - called multiple times to handle page changes
       const tryInjectCanvas = () => {
         const frame = document.querySelector('.gjs-frame') || document.querySelector('iframe[name="editor-frame"]');
         if (frame && frame.contentDocument && frame.contentDocument.head) {
+          // Remove old style if it exists (in case iframe was reused)
           const existing = frame.contentDocument.getElementById('local-fonts');
-          if (!existing) {
-            const canvasStyle = frame.contentDocument.createElement('style');
-            canvasStyle.id = 'local-fonts';
-            canvasStyle.textContent = fontFaces.join('\n');
-            frame.contentDocument.head.appendChild(canvasStyle);
-            console.log('Injected fonts into canvas iframe');
+          if (existing) {
+            existing.remove();
           }
+
+          const canvasStyle = frame.contentDocument.createElement('style');
+          canvasStyle.id = 'local-fonts';
+          canvasStyle.textContent = fontFaces.join('\n');
+          frame.contentDocument.head.appendChild(canvasStyle);
+          console.log('Injected fonts into canvas iframe');
         }
       };
 
       // Try multiple times in case iframe loads later
+      setTimeout(tryInjectCanvas, 500);
       setTimeout(tryInjectCanvas, 1000);
-      setTimeout(tryInjectCanvas, 3000);
-      setTimeout(tryInjectCanvas, 5000);
+      setTimeout(tryInjectCanvas, 2000);
+      setTimeout(tryInjectCanvas, 4000);
     };
 
     const initEditor = async () => {
@@ -115,6 +119,25 @@ function App() {
           onEditor: (ed) => {
             editorRef.current = ed;
             injectFonts();
+
+            // Re-inject fonts when page changes
+            ed.on('page:select', () => {
+              console.log('Page changed, re-injecting fonts...');
+              // Inject with delays to ensure iframe is ready
+              setTimeout(() => injectFonts(), 50);
+              setTimeout(() => injectFonts(), 200);
+            });
+
+            // Also re-inject when content is set/loaded
+            ed.on('component:update', () => {
+              const frame = document.querySelector('.gjs-frame') || document.querySelector('iframe[name="editor-frame"]');
+              if (frame && frame.contentDocument) {
+                const hasLocalFonts = frame.contentDocument.getElementById('local-fonts');
+                if (!hasLocalFonts) {
+                  injectFonts();
+                }
+              }
+            });
 
             // Override existing gjs-t-h2 styles that force right-alignment and flex
             ed.addStyle({
