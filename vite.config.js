@@ -4,6 +4,7 @@ import fs from 'fs'
 import path from 'path'
 import crypto from 'crypto'
 import { generateSiteFromProject } from './scripts/render-project.mjs'
+import { startUpdateChecker, getDownloadStatus } from './update-checker.mjs'
 
 function toSlug(name) {
   return name
@@ -59,6 +60,9 @@ const saveProjectPlugin = {
       }
     }
 
+    // Start release update checker
+    startUpdateChecker()
+
     // Route /editor → /editor.html
     server.middlewares.use((req, res, next) => {
       if (req.url === '/editor' || req.url === '/editor/') {
@@ -101,6 +105,36 @@ const saveProjectPlugin = {
       }
       res.setHeader('Content-Type', 'text/plain')
       res.end(hash)
+    })
+
+    // Download status endpoint
+    server.middlewares.use('/api/downloads/status', (req, res) => {
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify(getDownloadStatus()))
+    })
+
+    // Download file routes
+    const downloadRoutes = {
+      '/downloads/columba.apk': 'columba-universal.apk',
+      '/downloads/meshchat-windows.exe': 'meshchat-win-portable.exe',
+      '/downloads/meshchat-mac.dmg': 'meshchat-mac.dmg',
+      '/downloads/meshchat-linux.AppImage': 'meshchat-linux.AppImage',
+    }
+    server.middlewares.use((req, res, next) => {
+      const urlPath = req.url.split('?')[0]
+      if (downloadRoutes[urlPath]) {
+        const filePath = path.join(import.meta.dirname, 'public', 'downloads', downloadRoutes[urlPath])
+        if (!fs.existsSync(filePath)) {
+          res.statusCode = 404
+          res.setHeader('Content-Type', 'application/json')
+          res.end(JSON.stringify({ error: 'Not yet downloaded' }))
+          return
+        }
+        res.setHeader('Content-Disposition', `attachment; filename="${downloadRoutes[urlPath]}"`)
+        fs.createReadStream(filePath).pipe(res)
+        return
+      }
+      next()
     })
 
     // Save project + generate static site

@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Downloaded release binaries (re-fetched by server on startup)
+public/downloads/*.apk
+public/downloads/*.exe
+public/downloads/*.dmg
+public/downloads/*.AppImage
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
