@@ -1,27 +1,123 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import fs from 'fs';
-import path from 'path';
+import fs from 'fs'
+import path from 'path'
+import crypto from 'crypto'
+
+function toSlug(name) {
+  return name
+    .toLowerCase()
+    .replace(/^yatra\s+mesh\s+/i, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+}
+
+function buildHtml(name, html, css, devReload = false) {
+  const reloadScript = devReload
+    ? `<script>(function(){var h='';function c(){fetch('/api/site-hash').then(function(r){return r.text()}).then(function(n){if(h&&h!==n){location.reload()}h=n}).catch(function(){})}setInterval(c,2000);c()})()</script>`
+    : ''
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${name}</title>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <style>${css}</style>
+</head>
+<body>
+${html}
+${reloadScript}
+</body>
+</html>`
+}
+
+function generateSiteFiles(pages, isDev = false) {
+  const siteDir = path.join(import.meta.dirname, 'public', 'site')
+  fs.mkdirSync(siteDir, { recursive: true })
+  pages.forEach((page, index) => {
+    const slug = index === 0 ? 'index' : toSlug(page.name)
+    const filename = `${slug}.html`
+    fs.writeFileSync(path.join(siteDir, filename), buildHtml(page.name, page.html, page.css, isDev))
+  })
+}
 
 const saveProjectPlugin = {
   name: 'save-project',
   configureServer(server) {
-    server.middlewares.use('/api/save-project', async (req, res) => {
-      if (req.method === 'POST') {
-        let body = '';
-        req.on('data', chunk => body += chunk);
-        req.on('end', () => {
-          const projectData = JSON.parse(body);
-          const projectFilePath = path.join(import.meta.dirname, 'public', 'gjs-project.grapesjs');
-          fs.writeFileSync(projectFilePath, JSON.stringify(projectData, null, 2));
-          console.log('Project saved!');
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ success: true }));
-        });
+    // Route /editor → /editor.html
+    server.middlewares.use((req, res, next) => {
+      if (req.url === '/editor' || req.url === '/editor/') {
+        req.url = '/editor.html'
       }
-    });
+      next()
+    })
+
+    // Serve generated static site pages
+    server.middlewares.use((req, res, next) => {
+      const url = req.url.split('?')[0]
+      let filePath
+
+      if (url === '/' || url === '/index.html') {
+        filePath = path.join(import.meta.dirname, 'public', 'site', 'index.html')
+      } else if (/^\/[a-z0-9-]+$/.test(url)) {
+        const slug = url.slice(1)
+        const candidate = path.join(import.meta.dirname, 'public', 'site', `${slug}.html`)
+        if (fs.existsSync(candidate)) filePath = candidate
+      }
+
+      if (filePath && fs.existsSync(filePath)) {
+        res.setHeader('Content-Type', 'text/html; charset=utf-8')
+        res.end(fs.readFileSync(filePath))
+        return
+      }
+      next()
+    })
+
+    // Site hash endpoint for dev auto-reload
+    server.middlewares.use('/api/site-hash', (req, res) => {
+      const siteDir = path.join(import.meta.dirname, 'public', 'site')
+      let hash = 'empty'
+      if (fs.existsSync(siteDir)) {
+        const files = fs.readdirSync(siteDir).sort()
+        const combined = files
+          .map(f => `${f}:${fs.statSync(path.join(siteDir, f)).mtimeMs}`)
+          .join(',')
+        hash = crypto.createHash('md5').update(combined).digest('hex')
+      }
+      res.setHeader('Content-Type', 'text/plain')
+      res.end(hash)
+    })
+
+    // Save project + generate static site
+    server.middlewares.use('/api/save-project', async (req, res) => {
+      if (req.method !== 'POST') {
+        res.writeHead(405).end()
+        return
+      }
+      let body = ''
+      req.on('data', chunk => { body += chunk })
+      req.on('end', () => {
+        try {
+          const { project, pages } = JSON.parse(body)
+          const projectFilePath = path.join(import.meta.dirname, 'public', 'gjs-project.grapesjs')
+          fs.writeFileSync(projectFilePath, JSON.stringify(project, null, 2))
+          if (pages?.length) {
+            generateSiteFiles(pages, true)
+            console.log(`[save] Site generated: ${pages.length} pages`)
+          }
+          res.writeHead(200, { 'Content-Type': 'application/json' })
+          res.end(JSON.stringify({ success: true }))
+        } catch (err) {
+          console.error('[save] Error:', err)
+          res.writeHead(500, { 'Content-Type': 'application/json' })
+          res.end(JSON.stringify({ error: err.message }))
+        }
+      })
+    })
   }
-};
+}
 
 export default defineConfig({
   plugins: [react(), saveProjectPlugin],
@@ -29,4 +125,11 @@ export default defineConfig({
     port: 5173,
     host: true,
   },
+  build: {
+    rollupOptions: {
+      input: {
+        editor: path.resolve(import.meta.dirname, 'editor.html'),
+      }
+    }
+  }
 })

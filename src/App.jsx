@@ -97,20 +97,61 @@ function App() {
             type: 'web',
             default: projectData,
           },
-          fonts: { enableFontManager: true },
+          fonts: {
+            enableFontManager: true,
+            default: [
+              {
+                family: 'Inter',
+                variants: {
+                  '400': { source: '/fonts/inter-latin-400.woff2' },
+                  '600': { source: '/fonts/inter-latin-600.woff2' },
+                  '700': { source: '/fonts/inter-latin-700.woff2' },
+                },
+              },
+              {
+                family: 'Orbitron',
+                variants: {
+                  '400': { source: '/fonts/orbitron-latin-400.woff2' },
+                  '500': { source: '/fonts/orbitron-latin-500.woff2' },
+                  '600': { source: '/fonts/orbitron-latin-600.woff2' },
+                  '700': { source: '/fonts/orbitron-latin-700.woff2' },
+                },
+              },
+              {
+                family: 'Monoton',
+                variants: {
+                  '400': { source: '/fonts/monoton-latin-400.woff2' },
+                },
+              },
+            ],
+          },
           storage: {
             type: 'self',
             autosaveChanges: 10,
             onSave: async ({ project }) => {
-              console.log('Saving project...', project);
+              console.log('Saving project...');
+              const editor = editorRef.current;
+              const allPages = editor.Pages.getAll();
+              const sharedCss = editor.getCss();
+              const pages = allPages.map(page => {
+                const frame = page.getMainFrame?.();
+                const rootComp = frame?.getMainComponent?.();
+                return {
+                  id: page.id,
+                  name: page.get('name'),
+                  html: rootComp ? editor.getHtml({ component: rootComp }) : '',
+                  css: sharedCss,
+                };
+              });
               const response = await fetch('/api/save-project', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(project),
+                body: JSON.stringify({ project, pages }),
               });
               if (!response.ok) {
                 throw new Error('Failed to save project');
               }
+              console.log(`Saved ${pages.length} pages`);
             },
             onLoad: async () => {
               return projectData;
@@ -441,6 +482,9 @@ function App() {
             console.log('Added missing styles to editor for Style Manager');
             console.log('Editor ready via callback');
             setLoading(false);
+
+            // Generate initial static site files on every editor open
+            setTimeout(() => ed.store(), 1500);
           },
         });
       } catch (err) {
