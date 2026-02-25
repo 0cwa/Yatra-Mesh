@@ -2558,8 +2558,7 @@
                                   }
                                 ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
                         ]
                       },
@@ -2617,8 +2616,7 @@
                           }
                         ]
                       }
-                    ],
-                    "tagName": "div"
+                    ]
                   }
                 ]
               },
@@ -2633,32 +2631,27 @@
                   {
                     "classes": [
                       "bg-grid"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-purple"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-blue"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-pink"
-                    ],
-                    "tagName": "div"
+                    ]
                   }
-                ],
-                "tagName": "div"
+                ]
               },
               {
                 "tagName": "main",
@@ -2686,8 +2679,7 @@
                                 "type": "textnode",
                                 "content": "Yatra Festival 2026 · Feb 27 – Mar 2"
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           },
                           {
                             "tagName": "h1",
@@ -2788,8 +2780,7 @@
                                   }
                                 ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           },
                           {
                             "tagName": "p",
@@ -2803,8 +2794,7 @@
                               }
                             ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -2892,8 +2882,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -2938,8 +2927,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -2984,14 +2972,11 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -3101,8 +3086,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -3178,8 +3162,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -3246,8 +3229,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -3314,14 +3296,11 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -3407,8 +3386,7 @@
                                                 "type": "textnode",
                                                 "content": "Columba"
                                               }
-                                            ],
-                                            "tagName": "div"
+                                            ]
                                           },
                                           {
                                             "classes": [
@@ -3419,14 +3397,11 @@
                                                 "type": "textnode",
                                                 "content": "Recommended for Android"
                                               }
-                                            ],
-                                            "tagName": "div"
+                                            ]
                                           }
-                                        ],
-                                        "tagName": "div"
+                                        ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   },
                                   {
                                     "tagName": "p",
@@ -3514,8 +3489,7 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   },
                                   {
                                     "tagName": "p",
@@ -3529,8 +3503,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -3569,8 +3542,7 @@
                                                 "type": "textnode",
                                                 "content": "MeshChat — Desktop"
                                               }
-                                            ],
-                                            "tagName": "div"
+                                            ]
                                           },
                                           {
                                             "classes": [
@@ -3582,14 +3554,11 @@
                                                 "type": "textnode",
                                                 "content": "Relay Node"
                                               }
-                                            ],
-                                            "tagName": "div"
+                                            ]
                                           }
-                                        ],
-                                        "tagName": "div"
+                                        ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   },
                                   {
                                     "tagName": "p",
@@ -3740,8 +3709,7 @@
                                                   }
                                                 ]
                                               }
-                                            ],
-                                            "tagName": "div"
+                                            ]
                                           }
                                         ]
                                       },
@@ -3812,14 +3780,11 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -3894,8 +3859,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -3939,8 +3903,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -3984,14 +3947,11 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   }
@@ -4040,8 +4000,7 @@
                                     "type": "textnode",
                                     "content": "Yatra Mesh"
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -4052,14 +4011,11 @@
                                     "type": "textnode",
                                     "content": "© 2026 Yatra Festival · Experimental Captive Portal"
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       },
                       {
                         "classes": [
@@ -4111,11 +4067,9 @@
                               }
                             ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
-                    ],
-                    "tagName": "div"
+                    ]
                   }
                 ]
               }
@@ -4205,8 +4159,7 @@
                                   }
                                 ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
                         ]
                       },
@@ -4264,8 +4217,7 @@
                           }
                         ]
                       }
-                    ],
-                    "tagName": "div"
+                    ]
                   }
                 ]
               },
@@ -4280,32 +4232,27 @@
                   {
                     "classes": [
                       "bg-grid"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-purple"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-blue"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-pink"
-                    ],
-                    "tagName": "div"
+                    ]
                   }
-                ],
-                "tagName": "div"
+                ]
               },
               {
                 "tagName": "main",
@@ -4361,8 +4308,7 @@
                               }
                             ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -4496,8 +4442,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
                             ]
                           },
@@ -4569,8 +4514,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
                             ]
                           },
@@ -4642,8 +4586,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
                             ]
                           },
@@ -4801,13 +4744,11 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
                             ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   }
@@ -4856,8 +4797,7 @@
                                     "type": "textnode",
                                     "content": "Yatra Mesh"
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -4868,14 +4808,11 @@
                                     "type": "textnode",
                                     "content": "© 2026 Yatra Festival · Experimental Captive Portal"
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       },
                       {
                         "classes": [
@@ -4927,11 +4864,9 @@
                               }
                             ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
-                    ],
-                    "tagName": "div"
+                    ]
                   }
                 ]
               }
@@ -5021,8 +4956,7 @@
                                   }
                                 ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
                         ]
                       },
@@ -5080,8 +5014,7 @@
                           }
                         ]
                       }
-                    ],
-                    "tagName": "div"
+                    ]
                   }
                 ]
               },
@@ -5096,32 +5029,27 @@
                   {
                     "classes": [
                       "bg-grid"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-purple"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-blue"
-                    ],
-                    "tagName": "div"
+                    ]
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-pink"
-                    ],
-                    "tagName": "div"
+                    ]
                   }
-                ],
-                "tagName": "div"
+                ]
               },
               {
                 "tagName": "main",
@@ -5165,8 +5093,7 @@
                               }
                             ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -5295,8 +5222,7 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   }
                                 ]
                               },
@@ -5344,8 +5270,7 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   }
                                 ]
                               },
@@ -5393,8 +5318,7 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   }
                                 ]
                               },
@@ -5442,8 +5366,7 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   }
                                 ]
                               },
@@ -5491,15 +5414,13 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   }
                                 ]
                               }
                             ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -5586,8 +5507,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -5631,8 +5551,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -5676,8 +5595,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -5721,14 +5639,11 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -5790,8 +5705,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -5822,8 +5736,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -5854,8 +5767,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -5886,8 +5798,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -5921,8 +5832,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -5953,14 +5863,11 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   },
@@ -6040,8 +5947,7 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   },
                                   {
                                     "tagName": "p",
@@ -6090,8 +5996,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -6128,8 +6033,7 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   },
                                   {
                                     "tagName": "p",
@@ -6178,8 +6082,7 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -6216,8 +6119,7 @@
                                           }
                                         ]
                                       }
-                                    ],
-                                    "tagName": "div"
+                                    ]
                                   },
                                   {
                                     "tagName": "p",
@@ -6266,14 +6168,11 @@
                                       }
                                     ]
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
                     ]
                   }
@@ -6322,8 +6221,7 @@
                                     "type": "textnode",
                                     "content": "Yatra Mesh"
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               },
                               {
                                 "classes": [
@@ -6334,14 +6232,11 @@
                                     "type": "textnode",
                                     "content": "© 2026 Yatra Festival · Experimental Captive Portal"
                                   }
-                                ],
-                                "tagName": "div"
+                                ]
                               }
-                            ],
-                            "tagName": "div"
+                            ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       },
                       {
                         "classes": [
@@ -6393,11 +6288,9 @@
                               }
                             ]
                           }
-                        ],
-                        "tagName": "div"
+                        ]
                       }
-                    ],
-                    "tagName": "div"
+                    ]
                   }
                 ]
               }
