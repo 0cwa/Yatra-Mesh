@@ -97,30 +97,28 @@ app.get('/editor', (req, res) => {
 })
 
 // Download routes – serve locally cached release assets
+// Explicit MIME types prevent browser content-sniffing: APK/EXE/DMG are ZIP-based
+// binary formats and without a proper Content-Type, Android sniffs them as
+// application/zip and appends ".zip" to the filename.
+// Cache-Control: no-transform tells any proxy/CDN not to re-encode the body.
 const downloadsDir = path.join(__dirname, 'public', 'downloads')
 
-app.get('/downloads/columba.apk', (req, res) => {
-  const file = path.join(downloadsDir, 'columba-universal.apk')
-  if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not yet downloaded' })
-  res.download(file, 'columba-universal.apk')
-})
+const DOWNLOAD_ROUTES = {
+  '/downloads/columba.apk':            { file: 'columba-universal.apk',     mime: 'application/vnd.android.package-archive' },
+  '/downloads/meshchat-windows.exe':   { file: 'meshchat-win-portable.exe', mime: 'application/octet-stream' },
+  '/downloads/meshchat-mac.dmg':       { file: 'meshchat-mac.dmg',          mime: 'application/x-apple-diskimage' },
+  '/downloads/meshchat-linux.AppImage':{ file: 'meshchat-linux.AppImage',   mime: 'application/octet-stream' },
+}
 
-app.get('/downloads/meshchat-windows.exe', (req, res) => {
-  const file = path.join(downloadsDir, 'meshchat-win-portable.exe')
-  if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not yet downloaded' })
-  res.download(file, 'meshchat-win-portable.exe')
-})
-
-app.get('/downloads/meshchat-mac.dmg', (req, res) => {
-  const file = path.join(downloadsDir, 'meshchat-mac.dmg')
-  if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not yet downloaded' })
-  res.download(file, 'meshchat-mac.dmg')
-})
-
-app.get('/downloads/meshchat-linux.AppImage', (req, res) => {
-  const file = path.join(downloadsDir, 'meshchat-linux.AppImage')
-  if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not yet downloaded' })
-  res.download(file, 'meshchat-linux.AppImage')
+Object.entries(DOWNLOAD_ROUTES).forEach(([route, { file, mime }]) => {
+  app.get(route, (req, res) => {
+    const fullPath = path.join(downloadsDir, file)
+    if (!fs.existsSync(fullPath)) return res.status(404).json({ error: 'Not yet downloaded' })
+    res.set('Content-Type', mime)
+    res.set('X-Content-Type-Options', 'nosniff')
+    res.set('Cache-Control', 'no-transform')
+    res.download(fullPath, file)
+  })
 })
 
 app.get('/api/downloads/status', (req, res) => {

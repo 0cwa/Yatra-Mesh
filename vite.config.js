@@ -114,23 +114,37 @@ const saveProjectPlugin = {
     })
 
     // Download file routes
+    // Explicit MIME types prevent browser content-sniffing: APK/EXE/DMG are ZIP-based
+    // binary formats and without a proper Content-Type, Android sniffs them as
+    // application/zip and appends ".zip" to the filename.
     const downloadRoutes = {
-      '/downloads/columba.apk': 'columba-universal.apk',
-      '/downloads/meshchat-windows.exe': 'meshchat-win-portable.exe',
-      '/downloads/meshchat-mac.dmg': 'meshchat-mac.dmg',
-      '/downloads/meshchat-linux.AppImage': 'meshchat-linux.AppImage',
+      '/downloads/columba.apk':            { file: 'columba-universal.apk',         mime: 'application/vnd.android.package-archive' },
+      '/downloads/meshchat-windows.exe':   { file: 'meshchat-win-portable.exe',     mime: 'application/octet-stream' },
+      '/downloads/meshchat-mac.dmg':       { file: 'meshchat-mac.dmg',              mime: 'application/x-apple-diskimage' },
+      '/downloads/meshchat-linux.AppImage':{ file: 'meshchat-linux.AppImage',       mime: 'application/octet-stream' },
     }
     server.middlewares.use((req, res, next) => {
       const urlPath = req.url.split('?')[0]
-      if (downloadRoutes[urlPath]) {
-        const filePath = path.join(import.meta.dirname, 'public', 'downloads', downloadRoutes[urlPath])
+      const route = downloadRoutes[urlPath]
+      if (route) {
+        const filePath = path.join(import.meta.dirname, 'public', 'downloads', route.file)
         if (!fs.existsSync(filePath)) {
           res.statusCode = 404
           res.setHeader('Content-Type', 'application/json')
           res.end(JSON.stringify({ error: 'Not yet downloaded' }))
           return
         }
-        res.setHeader('Content-Disposition', `attachment; filename="${downloadRoutes[urlPath]}"`)
+        const size = fs.statSync(filePath).size
+        // Use writeHead to commit headers atomically, preventing any upstream
+        // middleware (e.g. compression) from adding Content-Encoding and causing
+        // the browser to save the file with a wrong extension.
+        res.writeHead(200, {
+          'Content-Type': route.mime,
+          'Content-Disposition': `attachment; filename="${route.file}"`,
+          'Content-Length': size,
+          'X-Content-Type-Options': 'nosniff',
+          'Cache-Control': 'no-transform',
+        })
         fs.createReadStream(filePath).pipe(res)
         return
       }
