@@ -1,0 +1,5 @@
+downloads/
+node_modules/
+dist/
+dist-gh-pages/
+*.env
