@@ -6,45 +6,6 @@ import crypto from 'crypto'
 import { generateSiteFromProject } from './scripts/render-project.mjs'
 import { startUpdateChecker, getDownloadStatus } from './update-checker.mjs'
 
-function toSlug(name) {
-  return name
-    .toLowerCase()
-    .replace(/^yatra\s+mesh\s+/i, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-}
-
-function buildHtml(name, html, css, devReload = false) {
-  const reloadScript = devReload
-    ? `<script>(function(){var h='';function c(){fetch('/api/site-hash').then(function(r){return r.text()}).then(function(n){if(h&&h!==n){location.reload()}h=n}).catch(function(){})}setInterval(c,2000);c()})()</script>`
-    : ''
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${name}</title>
-  <link rel="stylesheet" href="/fonts/fonts.css">
-  <style>${css}</style>
-</head>
-<body>
-${html}
-${reloadScript}
-</body>
-</html>`
-}
-
-function generateSiteFiles(pages, isDev = false) {
-  const siteDir = path.join(import.meta.dirname, 'public', 'site')
-  fs.mkdirSync(siteDir, { recursive: true })
-  pages.forEach((page, index) => {
-    const slug = index === 0 ? 'index' : toSlug(page.name)
-    const filename = `${slug}.html`
-    fs.writeFileSync(path.join(siteDir, filename), buildHtml(page.name, page.html, page.css, isDev))
-  })
-}
-
 const saveProjectPlugin = {
   name: 'save-project',
   configureServer(server) {

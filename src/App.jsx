@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import createStudioEditor from '@grapesjs/studio-sdk';
 import '@grapesjs/studio-sdk/style';
-import './App.css';
 
 const localFonts = [
   { name: 'Inter', weights: [400, 600, 700] },
@@ -16,15 +15,9 @@ function App() {
   const [projectData, setProjectData] = useState(null);
 
   useEffect(() => {
-    console.log('Fetching project data...');
     fetch('/gjs-project.grapesjs')
-      .then(res => {
-        console.log('Fetch response:', res.status, res.statusText);
-        return res.json();
-      })
+      .then(res => res.json())
       .then(data => {
-        console.log('Project loaded, pages:', data.pages?.length);
-        console.log('First page component preview:', data.pages?.[0]?.component?.substring(0, 200));
         setProjectData(data);
       })
       .catch(err => {
@@ -61,7 +54,6 @@ function App() {
       mainStyle.id = 'local-fonts';
       mainStyle.textContent = fontFaces.join('\n');
       document.head.appendChild(mainStyle);
-      console.log('Injected local fonts into document head');
 
       // Inject into canvas iframe - called multiple times to handle page changes
       const tryInjectCanvas = () => {
@@ -77,7 +69,6 @@ function App() {
           canvasStyle.id = 'local-fonts';
           canvasStyle.textContent = fontFaces.join('\n');
           frame.contentDocument.head.appendChild(canvasStyle);
-          console.log('Injected fonts into canvas iframe');
         }
       };
 
@@ -90,7 +81,6 @@ function App() {
 
     const initEditor = async () => {
       try {
-        console.log('Initializing editor with project data...');
         await createStudioEditor({
           root: '#editor',
           project: {
@@ -129,7 +119,6 @@ function App() {
             type: 'self',
             autosaveChanges: 10,
             onSave: async ({ project }) => {
-              console.log('Saving project...');
               const response = await fetch('/api/save-project', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -138,7 +127,6 @@ function App() {
               if (!response.ok) {
                 throw new Error('Failed to save project');
               }
-              console.log(`Project saved successfully`);
             },
             onLoad: async () => {
               return projectData;
@@ -150,7 +138,6 @@ function App() {
 
             // Re-inject fonts when page changes
             ed.on('page:select', () => {
-              console.log('Page changed, re-injecting fonts...');
               // Inject with delays to ensure iframe is ready
               setTimeout(() => injectFonts(), 50);
               setTimeout(() => injectFonts(), 200);
@@ -167,7 +154,6 @@ function App() {
               }
             });
 
-            console.log('Editor ready via callback');
             setLoading(false);
 
             // Generate initial static site files on every editor open

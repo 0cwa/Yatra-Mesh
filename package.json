@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "generate-site": "node scripts/render-project.mjs"
+    "generate-site": "node scripts/render-project.mjs",
+    "build:gh-pages": "node scripts/build-github-pages.mjs"
   },
   "dependencies": {
     "@grapesjs/studio-sdk": "^1.0.58",
