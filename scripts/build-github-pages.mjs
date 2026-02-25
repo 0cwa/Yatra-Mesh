@@ -115,6 +115,9 @@ function fixHtml(html, downloadUrls) {
   out = out.replace(/src="\/icons\//g, 'src="./icons/')
   out = out.replace(/src="\/columba-logo\.svg"/g, 'src="./columba-logo.svg"')
   out = out.replace(/src="\/meshchat-logo\.png"/g, 'src="./meshchat-logo.png"')
+  // Fix missing psychedelic-logo-48.png (stored in images/, referenced from icons/)
+  out = out.replace(/src="\.\/icons\/psychedelic-logo-48\.png"/g, 'src="./images/psychedelic-logo-48.png"')
+  out = out.replace(/src="\/icons\/psychedelic-logo-48\.png"/g, 'src="./images/psychedelic-logo-48.png"')
 
   return out
 }
@@ -158,7 +161,7 @@ async function main() {
   }
 
   // Copy static asset directories
-  for (const dir of ['fonts', 'icons']) {
+  for (const dir of ['fonts', 'icons', 'images']) {
     const src = path.join(ROOT, 'public', dir)
     if (fs.existsSync(src)) {
       copyDir(src, path.join(outDir, dir))
