@@ -1486,7 +1486,7 @@
       ],
       "selectorsAdd": " li::before",
       "style": {
-        "content": "\"\u2192\"",
+        "content": "\"→\"",
         "position": "absolute",
         "left": "0",
         "color": "#47b3ff",
@@ -2507,7 +2507,7 @@
                               "brand-logo"
                             ],
                             "attributes": {
-                              "src": "/icons/psychedelic-logo-48.png",
+                              "src": "/images/YatraMeshLogo.png",
                               "alt": "Yatra Mesh"
                             }
                           },
@@ -2536,11 +2536,12 @@
                                 "components": [
                                   {
                                     "type": "textnode",
-                                    "content": "P2P \u00b7 Heart 2 Heart"
+                                    "content": "P2P · Heart 2 Heart"
                                   }
                                 ]
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
                         ]
                       },
@@ -2598,7 +2599,8 @@
                           }
                         ]
                       }
-                    ]
+                    ],
+                    "tagName": "div"
                   }
                 ]
               },
@@ -2613,27 +2615,32 @@
                   {
                     "classes": [
                       "bg-grid"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-purple"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-blue"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-pink"
-                    ]
+                    ],
+                    "tagName": "div"
                   }
-                ]
+                ],
+                "tagName": "div"
               },
               {
                 "tagName": "main",
@@ -2659,9 +2666,10 @@
                             "components": [
                               {
                                 "type": "textnode",
-                                "content": "Yatra Festival 2026 \u00b7 Feb 27 \u2013 Mar 2"
+                                "content": "Yatra Festival 2026 · Feb 27 – Mar 2"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           },
                           {
                             "tagName": "h1",
@@ -2684,7 +2692,7 @@
                             "components": [
                               {
                                 "type": "textnode",
-                                "content": "Off-grid peer-to-peer messaging for the festival. No internet, no towers \u2014 just people connecting directly over WiFi and Bluetooth."
+                                "content": "Off-grid peer-to-peer messaging for the festival. No internet, no towers — just people connecting directly over WiFi and Bluetooth."
                               }
                             ]
                           },
@@ -2762,7 +2770,8 @@
                                   }
                                 ]
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           },
                           {
                             "tagName": "p",
@@ -2772,11 +2781,12 @@
                             "components": [
                               {
                                 "type": "textnode",
-                                "content": "Keep Bluetooth & WiFi on. Turn Airplane Mode on to save battery, then re-enable both. If your phone says \"No internet\" \u2014 tap Stay Connected Anyway."
+                                "content": "Keep Bluetooth & WiFi on. Turn Airplane Mode on to save battery, then re-enable both. If your phone says \"No internet\" — tap Stay Connected Anyway."
                               }
                             ]
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -2864,7 +2874,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -2905,11 +2916,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Go to App Info \u2192 Battery and turn off optimisations. This keeps Yatra Mesh relaying messages when your screen is off."
+                                        "content": "Go to App Info → Battery and turn off optimisations. This keeps Yatra Mesh relaying messages when your screen is off."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -2950,15 +2962,18 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "If your phone warns about no internet after connecting \u2014 tap \"Stay Connected Anyway\". The mesh works without internet."
+                                        "content": "If your phone warns about no internet after connecting — tap \"Stay Connected Anyway\". The mesh works without internet."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -3044,7 +3059,7 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Swimming welcome \u2014 no soaps in the river, even \"biodegradable\" ones. The Takaka river is delicate."
+                                            "content": "Swimming welcome — no soaps in the river, even \"biodegradable\" ones. The Takaka river is delicate."
                                           }
                                         ]
                                       },
@@ -3053,7 +3068,7 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Very shallow under the bridge \u2014 no jumping."
+                                            "content": "Very shallow under the bridge — no jumping."
                                           }
                                         ]
                                       },
@@ -3068,7 +3083,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -3129,7 +3145,7 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "No glass on site \u2014 many people are barefoot. Report broken glass to a volunteer."
+                                            "content": "No glass on site — many people are barefoot. Report broken glass to a volunteer."
                                           }
                                         ]
                                       },
@@ -3144,7 +3160,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -3196,7 +3213,7 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "This is an all-inclusive event \u2014 everyone is welcome here."
+                                            "content": "This is an all-inclusive event — everyone is welcome here."
                                           }
                                         ]
                                       },
@@ -3211,7 +3228,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -3254,7 +3272,7 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Medical / First Aid tent \u2014 visit any time you need help."
+                                            "content": "Medical / First Aid tent — visit any time you need help."
                                           }
                                         ]
                                       },
@@ -3263,7 +3281,7 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Yatra Care tent \u2014 for non-first-aid wellbeing support."
+                                            "content": "Yatra Care tent — for non-first-aid wellbeing support."
                                           }
                                         ]
                                       },
@@ -3272,17 +3290,20 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Market \u2014 clothes, arts, crafts, food and refreshments."
+                                            "content": "Market — clothes, arts, crafts, food and refreshments."
                                           }
                                         ]
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -3368,7 +3389,8 @@
                                                 "type": "textnode",
                                                 "content": "Columba"
                                               }
-                                            ]
+                                            ],
+                                            "tagName": "div"
                                           },
                                           {
                                             "classes": [
@@ -3379,11 +3401,14 @@
                                                 "type": "textnode",
                                                 "content": "Recommended for Android"
                                               }
-                                            ]
+                                            ],
+                                            "tagName": "div"
                                           }
-                                        ]
+                                        ],
+                                        "tagName": "div"
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   },
                                   {
                                     "tagName": "p",
@@ -3471,7 +3496,8 @@
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   },
                                   {
                                     "tagName": "p",
@@ -3481,11 +3507,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Sorry, no iOS \u2014 Apple restricts the background networking needed for mesh relaying."
+                                        "content": "Sorry, no iOS — Apple restricts the background networking needed for mesh relaying."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -3522,9 +3549,10 @@
                                             "components": [
                                               {
                                                 "type": "textnode",
-                                                "content": "MeshChat \u2014 Desktop"
+                                                "content": "MeshChat — Desktop"
                                               }
-                                            ]
+                                            ],
+                                            "tagName": "div"
                                           },
                                           {
                                             "classes": [
@@ -3536,11 +3564,14 @@
                                                 "type": "textnode",
                                                 "content": "Relay Node"
                                               }
-                                            ]
+                                            ],
+                                            "tagName": "div"
                                           }
-                                        ]
+                                        ],
+                                        "tagName": "div"
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   },
                                   {
                                     "tagName": "p",
@@ -3550,7 +3581,7 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Linux, macOS and Windows builds. Best as a relay to help messages travel further \u2014 keep the app running."
+                                        "content": "Linux, macOS and Windows builds. Best as a relay to help messages travel further — keep the app running."
                                       }
                                     ]
                                   },
@@ -3691,7 +3722,8 @@
                                                   }
                                                 ]
                                               }
-                                            ]
+                                            ],
+                                            "tagName": "div"
                                           }
                                         ]
                                       },
@@ -3762,11 +3794,14 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -3841,7 +3876,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -3881,11 +3917,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "When WiFi isn't available, nearby devices relay messages over Bluetooth \u2014 even with the screen off."
+                                        "content": "When WiFi isn't available, nearby devices relay messages over Bluetooth — even with the screen off."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -3929,11 +3966,14 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   }
@@ -3964,7 +4004,7 @@
                               "footer-logo"
                             ],
                             "attributes": {
-                              "src": "/icons/psychedelic-logo-48.png",
+                              "src": "/images/YatraMeshLogo.png",
                               "alt": ""
                             }
                           },
@@ -3982,7 +4022,8 @@
                                     "type": "textnode",
                                     "content": "Yatra Mesh"
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -3991,13 +4032,16 @@
                                 "components": [
                                   {
                                     "type": "textnode",
-                                    "content": "\u00a9 2026 Yatra Festival \u00b7 Experimental Captive Portal"
+                                    "content": "© 2026 Yatra Festival · Experimental Captive Portal"
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       },
                       {
                         "classes": [
@@ -4049,9 +4093,11 @@
                               }
                             ]
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
-                    ]
+                    ],
+                    "tagName": "div"
                   }
                 ]
               }
@@ -4108,7 +4154,7 @@
                               "brand-logo"
                             ],
                             "attributes": {
-                              "src": "/icons/psychedelic-logo-48.png",
+                              "src": "/images/YatraMeshLogo.png",
                               "alt": "Yatra Mesh"
                             }
                           },
@@ -4137,11 +4183,12 @@
                                 "components": [
                                   {
                                     "type": "textnode",
-                                    "content": "P2P \u00b7 Heart 2 Heart"
+                                    "content": "P2P · Heart 2 Heart"
                                   }
                                 ]
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
                         ]
                       },
@@ -4199,7 +4246,8 @@
                           }
                         ]
                       }
-                    ]
+                    ],
+                    "tagName": "div"
                   }
                 ]
               },
@@ -4214,27 +4262,32 @@
                   {
                     "classes": [
                       "bg-grid"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-purple"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-blue"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-pink"
-                    ]
+                    ],
+                    "tagName": "div"
                   }
-                ]
+                ],
+                "tagName": "div"
               },
               {
                 "tagName": "main",
@@ -4274,7 +4327,7 @@
                             "components": [
                               {
                                 "type": "textnode",
-                                "content": "February 27 \u2013 March 2, 2026"
+                                "content": "February 27 – March 2, 2026"
                               }
                             ]
                           },
@@ -4290,7 +4343,8 @@
                               }
                             ]
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -4382,7 +4436,7 @@
                                           },
                                           {
                                             "type": "textnode",
-                                            "content": " \u2014 Gates Open"
+                                            "content": " — Gates Open"
                                           }
                                         ]
                                       },
@@ -4400,7 +4454,7 @@
                                           },
                                           {
                                             "type": "textnode",
-                                            "content": " \u2014 Opening Ceremony"
+                                            "content": " — Opening Ceremony"
                                           }
                                         ]
                                       },
@@ -4418,13 +4472,14 @@
                                           },
                                           {
                                             "type": "textnode",
-                                            "content": " \u2014 Music Begins"
+                                            "content": " — Music Begins"
                                           }
                                         ]
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
                             ]
                           },
@@ -4492,11 +4547,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Full day of music \u2014 detailed schedule coming soon."
+                                        "content": "Full day of music — detailed schedule coming soon."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
                             ]
                           },
@@ -4564,11 +4620,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Full day of music \u2014 detailed schedule coming soon."
+                                        "content": "Full day of music — detailed schedule coming soon."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
                             ]
                           },
@@ -4648,7 +4705,7 @@
                                           },
                                           {
                                             "type": "textnode",
-                                            "content": " \u2014 Music Ends"
+                                            "content": " — Music Ends"
                                           }
                                         ]
                                       },
@@ -4660,13 +4717,13 @@
                                             "components": [
                                               {
                                                 "type": "textnode",
-                                                "content": "2:00\u20132:45 PM"
+                                                "content": "2:00–2:45 PM"
                                               }
                                             ]
                                           },
                                           {
                                             "type": "textnode",
-                                            "content": " \u2014 Closing Ceremony"
+                                            "content": " — Closing Ceremony"
                                           }
                                         ]
                                       },
@@ -4684,7 +4741,7 @@
                                           },
                                           {
                                             "type": "textnode",
-                                            "content": " \u2014 Festival Ends"
+                                            "content": " — Festival Ends"
                                           }
                                         ]
                                       },
@@ -4702,7 +4759,7 @@
                                           },
                                           {
                                             "type": "textnode",
-                                            "content": " \u2014 Depart site (unless prior arrangements)"
+                                            "content": " — Depart site (unless prior arrangements)"
                                           }
                                         ]
                                       },
@@ -4720,17 +4777,19 @@
                                           },
                                           {
                                             "type": "textnode",
-                                            "content": " \u2014 Gates Close"
+                                            "content": " — Gates Close"
                                           }
                                         ]
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
                             ]
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   }
@@ -4761,7 +4820,7 @@
                               "footer-logo"
                             ],
                             "attributes": {
-                              "src": "/icons/psychedelic-logo-48.png",
+                              "src": "/images/YatraMeshLogo.png",
                               "alt": ""
                             }
                           },
@@ -4779,7 +4838,8 @@
                                     "type": "textnode",
                                     "content": "Yatra Mesh"
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -4788,13 +4848,16 @@
                                 "components": [
                                   {
                                     "type": "textnode",
-                                    "content": "\u00a9 2026 Yatra Festival \u00b7 Experimental Captive Portal"
+                                    "content": "© 2026 Yatra Festival · Experimental Captive Portal"
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       },
                       {
                         "classes": [
@@ -4846,9 +4909,11 @@
                               }
                             ]
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
-                    ]
+                    ],
+                    "tagName": "div"
                   }
                 ]
               }
@@ -4905,7 +4970,7 @@
                               "brand-logo"
                             ],
                             "attributes": {
-                              "src": "/icons/psychedelic-logo-48.png",
+                              "src": "/images/YatraMeshLogo.png",
                               "alt": "Yatra Mesh"
                             }
                           },
@@ -4934,11 +4999,12 @@
                                 "components": [
                                   {
                                     "type": "textnode",
-                                    "content": "P2P \u00b7 Heart 2 Heart"
+                                    "content": "P2P · Heart 2 Heart"
                                   }
                                 ]
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
                         ]
                       },
@@ -4996,7 +5062,8 @@
                           }
                         ]
                       }
-                    ]
+                    ],
+                    "tagName": "div"
                   }
                 ]
               },
@@ -5011,27 +5078,32 @@
                   {
                     "classes": [
                       "bg-grid"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-purple"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-blue"
-                    ]
+                    ],
+                    "tagName": "div"
                   },
                   {
                     "classes": [
                       "blob",
                       "blob-pink"
-                    ]
+                    ],
+                    "tagName": "div"
                   }
-                ]
+                ],
+                "tagName": "div"
               },
               {
                 "tagName": "main",
@@ -5075,7 +5147,8 @@
                               }
                             ]
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -5114,7 +5187,7 @@
                             "components": [
                               {
                                 "type": "textnode",
-                                "content": "Columba is privacy-first \u2014 no account, no tracking, works completely offline."
+                                "content": "Columba is privacy-first — no account, no tracking, works completely offline."
                               }
                             ]
                           },
@@ -5204,7 +5277,8 @@
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   }
                                 ]
                               },
@@ -5248,11 +5322,12 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Turn on Airplane Mode to save battery, then re-enable both Bluetooth and WiFi. If your phone warns \"No internet\" \u2014 tap Stay Connected Anyway."
+                                            "content": "Turn on Airplane Mode to save battery, then re-enable both Bluetooth and WiFi. If your phone warns \"No internet\" — tap Stay Connected Anyway."
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   }
                                 ]
                               },
@@ -5296,11 +5371,12 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Go to Settings \u2192 Apps \u2192 Columba \u2192 Battery \u2192 select \"Unrestricted\". This lets the app relay messages in the background."
+                                            "content": "Go to Settings → Apps → Columba → Battery → select \"Unrestricted\". This lets the app relay messages in the background."
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   }
                                 ]
                               },
@@ -5344,11 +5420,12 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Columba will create a unique anonymous identity for you \u2014 no email or account needed. Follow the in-app guide."
+                                            "content": "Columba will create a unique anonymous identity for you — no email or account needed. Follow the in-app guide."
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   }
                                 ]
                               },
@@ -5392,17 +5469,19 @@
                                         "components": [
                                           {
                                             "type": "textnode",
-                                            "content": "Tap Announce to let others know you're here. Find peers in Contacts \u2192 Network tab and start chatting."
+                                            "content": "Tap Announce to let others know you're here. Find peers in Contacts → Network tab and start chatting."
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   }
                                 ]
                               }
                             ]
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -5485,11 +5564,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Send encrypted messages and make voice calls over the mesh \u2014 no internet required. Compatible with Sideband and MeshChatX."
+                                        "content": "Send encrypted messages and make voice calls over the mesh — no internet required. Compatible with Sideband and MeshChatX."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -5533,7 +5613,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -5577,7 +5658,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -5621,11 +5703,14 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -5687,7 +5772,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -5714,11 +5800,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Both sender and receiver need to have sent announces. Messages relay through nearby devices \u2014 more nodes means better delivery."
+                                        "content": "Both sender and receiver need to have sent announces. Messages relay through nearby devices — more nodes means better delivery."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -5745,11 +5832,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Go to Settings \u2192 Apps \u2192 Special App Access \u2192 Install Unknown Apps. Enable for your browser or file manager, then try again."
+                                        "content": "Go to Settings → Apps → Special App Access → Install Unknown Apps. Enable for your browser or file manager, then try again."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -5776,11 +5864,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Disable battery optimisation for Columba: App Info \u2192 Battery \u2192 Unrestricted. Essential for relaying when the screen is off."
+                                        "content": "Disable battery optimisation for Columba: App Info → Battery → Unrestricted. Essential for relaying when the screen is off."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -5810,11 +5899,12 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "macOS restricts background networking. Keep MeshChat in the foreground and grant all permissions in System Settings \u2192 Privacy & Security."
+                                        "content": "macOS restricts background networking. Keep MeshChat in the foreground and grant all permissions in System Settings → Privacy & Security."
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -5845,11 +5935,14 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   },
@@ -5929,7 +6022,8 @@
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   },
                                   {
                                     "tagName": "p",
@@ -5939,7 +6033,7 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "AppImage \u2014 no installation needed. Download, make it executable, and run. Best desktop relay option."
+                                        "content": "AppImage — no installation needed. Download, make it executable, and run. Best desktop relay option."
                                       }
                                     ]
                                   },
@@ -5978,7 +6072,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -6015,7 +6110,8 @@
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   },
                                   {
                                     "tagName": "p",
@@ -6025,7 +6121,7 @@
                                     "components": [
                                       {
                                         "type": "textnode",
-                                        "content": "Keep MeshChat in the foreground. Grant permissions in System Settings \u2192 Privacy & Security."
+                                        "content": "Keep MeshChat in the foreground. Grant permissions in System Settings → Privacy & Security."
                                       }
                                     ]
                                   },
@@ -6064,7 +6160,8 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -6101,7 +6198,8 @@
                                           }
                                         ]
                                       }
-                                    ]
+                                    ],
+                                    "tagName": "div"
                                   },
                                   {
                                     "tagName": "p",
@@ -6150,11 +6248,14 @@
                                       }
                                     ]
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
                     ]
                   }
@@ -6185,7 +6286,7 @@
                               "footer-logo"
                             ],
                             "attributes": {
-                              "src": "/icons/psychedelic-logo-48.png",
+                              "src": "/images/YatraMeshLogo.png",
                               "alt": ""
                             }
                           },
@@ -6203,7 +6304,8 @@
                                     "type": "textnode",
                                     "content": "Yatra Mesh"
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               },
                               {
                                 "classes": [
@@ -6212,13 +6314,16 @@
                                 "components": [
                                   {
                                     "type": "textnode",
-                                    "content": "\u00a9 2026 Yatra Festival \u00b7 Experimental Captive Portal"
+                                    "content": "© 2026 Yatra Festival · Experimental Captive Portal"
                                   }
-                                ]
+                                ],
+                                "tagName": "div"
                               }
-                            ]
+                            ],
+                            "tagName": "div"
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       },
                       {
                         "classes": [
@@ -6270,9 +6375,11 @@
                               }
                             ]
                           }
-                        ]
+                        ],
+                        "tagName": "div"
                       }
-                    ]
+                    ],
+                    "tagName": "div"
                   }
                 ]
               }
