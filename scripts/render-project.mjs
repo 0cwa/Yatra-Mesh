@@ -42,8 +42,9 @@ function buildSelector(selectors, selectorsAdd) {
   const addPart = (selectorsAdd || '').trim()
   if (!classPart) return addPart
   if (!addPart) return classPart
-  // Pseudo/combinator: concatenate directly. Otherwise comma-join.
-  return /^[:\[>~+]/.test(addPart) ? classPart + addPart : `${classPart}, ${addPart}`
+  // Pseudo/combinator/attribute: concatenate directly.
+  // Anything else (bare tag, class, id) is a descendant — join with a space.
+  return /^[:\[>~+]/.test(addPart) ? classPart + addPart : `${classPart} ${addPart}`
 }
 
 function renderKeyframeStops(style) {
@@ -184,8 +185,9 @@ function renderComp(c) {
 
   const tag = tagName || TYPE_TAG[type] || 'div'
 
+  const classNames = classes.map(c => (typeof c === 'string' ? c : c?.name || '')).filter(Boolean)
   const parts = []
-  if (classes.length) parts.push(`class="${classes.join(' ')}"`)
+  if (classNames.length) parts.push(`class="${classNames.join(' ')}"`)
   const attrStr = renderAttrs(attributes)
   if (attrStr) parts.push(attrStr)
   const allAttrs = parts.length ? ' ' + parts.join(' ') : ''
@@ -244,7 +246,7 @@ export function generateSiteFromProject(projectPath, siteDir, devReload = false)
     const wrapper = frame.component
     const bodyHtml = renderComp(wrapper)
     // Preserve body tag classes and id from the GrapesJS wrapper
-    const bodyClasses = (wrapper.classes || []).join(' ')
+    const bodyClasses = (wrapper.classes || []).map(c => (typeof c === 'string' ? c : c?.name || '')).filter(Boolean).join(' ')
     const bodyId = wrapper.attributes?.id || ''
     let bodyAttrs = bodyClasses ? ` class="${bodyClasses}"` : ''
     if (bodyId) bodyAttrs += ` id="${bodyId}"`
