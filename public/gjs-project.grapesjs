@@ -2513,7 +2513,7 @@
                           "brand-link"
                         ],
                         "attributes": {
-                          "href": "/"
+                          "href": "index.html"
                         },
                         "components": [
                           {
@@ -2575,7 +2575,7 @@
                               "nav-active"
                             ],
                             "attributes": {
-                              "href": "/"
+                              "href": "index.html"
                             },
                             "components": [
                               {
@@ -2590,7 +2590,7 @@
                               "nav-link"
                             ],
                             "attributes": {
-                              "href": "/schedule"
+                              "href": "schedule.html"
                             },
                             "components": [
                               {
@@ -2605,7 +2605,7 @@
                               "nav-link"
                             ],
                             "attributes": {
-                              "href": "/help"
+                              "href": "help.html"
                             },
                             "components": [
                               {
@@ -2753,7 +2753,7 @@
                                   "btn-ghost"
                                 ],
                                 "attributes": {
-                                  "href": "/help"
+                                  "href": "help.html"
                                 },
                                 "components": [
                                   {
@@ -3462,7 +3462,7 @@
                                           "btn-ghost"
                                         ],
                                         "attributes": {
-                                          "href": "/help#android-setup"
+                                          "href": "help.html#android-setup"
                                         },
                                         "components": [
                                           {
@@ -3695,7 +3695,7 @@
                                                   "btn-outline"
                                                 ],
                                                 "attributes": {
-                                                  "href": "/help#macos-permissions"
+                                                  "href": "help.html#macos-permissions"
                                                 },
                                                 "components": [
                                                   {
@@ -3983,7 +3983,7 @@
                             ],
                             "attributes": {
                               "src": "/images/YatraMeshLogo.png",
-                              "alt": ""
+                              "alt": "Yatra Mesh"
                             }
                           },
                           {
@@ -4028,7 +4028,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/"
+                              "href": "index.html"
                             },
                             "components": [
                               {
@@ -4043,7 +4043,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/schedule"
+                              "href": "schedule.html"
                             },
                             "components": [
                               {
@@ -4058,7 +4058,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/help"
+                              "href": "help.html"
                             },
                             "components": [
                               {
@@ -4114,7 +4114,7 @@
                           "brand-link"
                         ],
                         "attributes": {
-                          "href": "/"
+                          "href": "index.html"
                         },
                         "components": [
                           {
@@ -4175,7 +4175,7 @@
                               "nav-link"
                             ],
                             "attributes": {
-                              "href": "/"
+                              "href": "index.html"
                             },
                             "components": [
                               {
@@ -4191,7 +4191,7 @@
                               "nav-active"
                             ],
                             "attributes": {
-                              "href": "/schedule"
+                              "href": "schedule.html"
                             },
                             "components": [
                               {
@@ -4206,7 +4206,7 @@
                               "nav-link"
                             ],
                             "attributes": {
-                              "href": "/help"
+                              "href": "help.html"
                             },
                             "components": [
                               {
@@ -4780,7 +4780,7 @@
                             ],
                             "attributes": {
                               "src": "/images/YatraMeshLogo.png",
-                              "alt": ""
+                              "alt": "Yatra Mesh"
                             }
                           },
                           {
@@ -4825,7 +4825,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/"
+                              "href": "index.html"
                             },
                             "components": [
                               {
@@ -4840,7 +4840,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/schedule"
+                              "href": "schedule.html"
                             },
                             "components": [
                               {
@@ -4855,7 +4855,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/help"
+                              "href": "help.html"
                             },
                             "components": [
                               {
@@ -4911,7 +4911,7 @@
                           "brand-link"
                         ],
                         "attributes": {
-                          "href": "/"
+                          "href": "index.html"
                         },
                         "components": [
                           {
@@ -4972,7 +4972,7 @@
                               "nav-link"
                             ],
                             "attributes": {
-                              "href": "/"
+                              "href": "index.html"
                             },
                             "components": [
                               {
@@ -4987,7 +4987,7 @@
                               "nav-link"
                             ],
                             "attributes": {
-                              "href": "/schedule"
+                              "href": "schedule.html"
                             },
                             "components": [
                               {
@@ -5003,7 +5003,7 @@
                               "nav-active"
                             ],
                             "attributes": {
-                              "href": "/help"
+                              "href": "help.html"
                             },
                             "components": [
                               {
@@ -6204,7 +6204,7 @@
                             ],
                             "attributes": {
                               "src": "/images/YatraMeshLogo.png",
-                              "alt": ""
+                              "alt": "Yatra Mesh"
                             }
                           },
                           {
@@ -6249,7 +6249,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/"
+                              "href": "index.html"
                             },
                             "components": [
                               {
@@ -6264,7 +6264,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/schedule"
+                              "href": "schedule.html"
                             },
                             "components": [
                               {
@@ -6279,7 +6279,7 @@
                               "footer-link"
                             ],
                             "attributes": {
-                              "href": "/help"
+                              "href": "help.html"
                             },
                             "components": [
                               {

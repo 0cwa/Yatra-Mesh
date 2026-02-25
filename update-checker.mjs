@@ -15,7 +15,7 @@ const APPS = [
     includePrereleases: true,
     // Asset ends with "universal.apk" but NOT "no-sentry"
     pickAsset: (assets) => assets.find(a => a.name.endsWith('universal.apk') && !a.name.includes('no-sentry')),
-    localName: 'columba-universal.apk',
+    localName: 'columba.apk',
     label: 'Columba (Android)',
     downloadPath: '/downloads/columba.apk',
   },
@@ -25,7 +25,7 @@ const APPS = [
     includePrereleases: false,
     // Windows portable: contains "win-portable", not "win-installer"
     pickAsset: (assets) => assets.find(a => a.name.includes('win-portable')),
-    localName: 'meshchat-win-portable.exe',
+    localName: 'meshchat-windows.exe',
     label: 'MeshChat (Windows)',
     downloadPath: '/downloads/meshchat-windows.exe',
   },
@@ -86,7 +86,7 @@ async function downloadFile(url, dest) {
     fs.renameSync(tmpDest, dest)
   } catch (err) {
     fileStream.destroy()
-    try { fs.unlinkSync(tmpDest) } catch {}
+    try { fs.unlinkSync(tmpDest) } catch { }
     throw err
   }
 }

@@ -70,7 +70,20 @@ function renderCss(styles) {
   const mediaGroups = {}
 
   for (const rule of styles) {
-    const { selectors = [], selectorsAdd = '', style = {}, atRuleType, mediaText } = rule
+    let { selectors = [], selectorsAdd = '', style = {}, atRuleType, mediaText } = rule
+
+    // Workaround for GrapesJS sometimes putting media queries in selectorsAdd
+    if (!atRuleType && selectorsAdd.startsWith('@media')) {
+      const match = selectorsAdd.match(/^@media\s+([^{]*?\([^)]+\))(?:\s+(.*))?$/)
+      if (match) {
+        atRuleType = 'media'
+        mediaText = match[1].trim()
+        selectorsAdd = match[2] ? match[2].trim() : ''
+        rule.atRuleType = atRuleType
+        rule.mediaText = mediaText
+        rule.selectorsAdd = selectorsAdd
+      }
+    }
 
     if (atRuleType === 'keyframes') {
       const name = mediaText || 'unknown'
@@ -206,7 +219,7 @@ function buildPageHtml(name, bodyHtml, css, devReload = false, bodyAttrs = '') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${name}</title>
-  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="fonts/fonts.css">
   <style>${css}</style>
 </head>
 <body${bodyAttrs}>
