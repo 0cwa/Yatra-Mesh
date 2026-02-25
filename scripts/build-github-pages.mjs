@@ -166,6 +166,15 @@ async function main() {
     }
   }
 
+  // Fix font URLs in fonts.css to use relative paths
+  const fontsCssPath = path.join(outDir, 'fonts', 'fonts.css')
+  if (fs.existsSync(fontsCssPath)) {
+    let fontsCss = fs.readFileSync(fontsCssPath, 'utf8')
+    fontsCss = fontsCss.replace(/url\(['"]\/fonts\//g, "url('./")
+    fs.writeFileSync(fontsCssPath, fontsCss)
+    console.log('[gh-pages] Fixed font URLs in fonts.css')
+  }
+
   // Copy root-level image assets referenced in the HTML
   for (const file of ['columba-logo.svg', 'meshchat-logo.png']) {
     const src = path.join(ROOT, 'public', file)
