@@ -2240,26 +2240,30 @@
             }
 
             // Auto-open current day
-            (function() {
+            (function () {
                 const dayDates = [
                     { date: new Date(2026, 1, 27), idx: 0 }, // Feb 27 Day 1
                     { date: new Date(2026, 1, 28), idx: 1 }, // Feb 28 Day 2
-                    { date: new Date(2026, 2,  1), idx: 2 }, // Mar 1  Day 3
-                    { date: new Date(2026, 2,  2), idx: 3 }, // Mar 2  Day 4
+                    { date: new Date(2026, 2, 1), idx: 2 }, // Mar 1  Day 3
+                    { date: new Date(2026, 2, 2), idx: 3 }, // Mar 2  Day 4
                 ];
                 const today = new Date();
-                today.setHours(0,0,0,0);
+                today.setHours(0, 0, 0, 0);
                 const days = document.querySelectorAll("details.sched-day");
                 let matched = false;
-                dayDates.forEach(function(d) {
-                    d.date.setHours(0,0,0,0);
+                dayDates.forEach(function (d) {
+                    d.date.setHours(0, 0, 0, 0);
                     if (!matched && today.getTime() === d.date.getTime()) {
                         if (days[d.idx]) days[d.idx].setAttribute("open", "");
                         matched = true;
                     }
                 });
                 // If within festival range but no exact match (night overflow), open first day
-                if (!matched && today >= dayDates[0].date && today <= dayDates[dayDates.length-1].date) {
+                if (
+                    !matched &&
+                    today >= dayDates[0].date &&
+                    today <= dayDates[dayDates.length - 1].date
+                ) {
                     if (days[0]) days[0].setAttribute("open", "");
                 }
             })();
