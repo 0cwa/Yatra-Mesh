@@ -966,7 +966,7 @@
                     grid-template-columns: 1fr;
                 }
                 .feature-grid {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: repeat(2, 1fr);
                 }
                 .trouble-grid {
                     grid-template-columns: 1fr;
@@ -989,6 +989,27 @@
                 .footer-links {
                     justify-content: center;
                 }
+                .how-it-works-inner {
+                    flex-direction: column !important;
+                    gap: 1.5rem !important;
+                }
+                .columba-credit {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    align-items: center !important;
+                    gap: 1rem !important;
+                    text-align: left !important;
+                    width: 100%;
+                }
+                .columba-credit img {
+                    width: 56px !important;
+                    height: 56px !important;
+                    margin: 0 !important;
+                    flex-shrink: 0;
+                }
+                .columba-credit p {
+                    max-width: none !important;
+                }
             }
             @media (max-width: 480px) {
                 .header-inner {
@@ -1006,6 +1027,9 @@
                     align-items: flex-start;
                 }
                 .trouble-grid {
+                    grid-template-columns: 1fr;
+                }
+                .feature-grid {
                     grid-template-columns: 1fr;
                 }
             }
@@ -1073,97 +1097,101 @@
                 </div>
             </section>
             <section class="about-section">
-                <div
-                    class="container"
-                    style="
-                        display: flex;
-                        align-items: flex-start;
-                        gap: 2.5rem;
-                        flex-wrap: wrap;
-                    "
-                >
-                    <div style="flex: 1; min-width: 0">
-                        <h2 class="section-title display-font">How It Works</h2>
-                        <div class="feature-grid">
-                            <div class="feature-card">
-                                <img
-                                    class="feature-icon"
-                                    src="./icons/lucide-wifi.svg"
-                                    alt=""
-                                    style=""
-                                />
-                                <h3 class="feature-title">WiFi Mesh</h3>
-                                <p class="feature-desc">
-                                    Connect to the local Yatra Mesh hotspot.
-                                    Messages hop from phone to phone across the
-                                    network without needing internet.
-                                </p>
-                            </div>
-                            <div class="feature-card">
-                                <img
-                                    class="feature-icon"
-                                    src="./icons/lucide-bluetooth.svg"
-                                    alt=""
-                                    style=""
-                                />
-                                <h3 class="feature-title">Bluetooth Relay</h3>
-                                <p class="feature-desc">
-                                    When WiFi isn't available, nearby devices
-                                    relay messages over Bluetooth — even with
-                                    the screen off.
-                                </p>
-                            </div>
-                            <div class="feature-card">
-                                <img
-                                    class="feature-icon"
-                                    src="./icons/lucide-lock.svg"
-                                    alt=""
-                                    style=""
-                                />
-                                <h3 class="feature-title">
-                                    Private &amp; Encrypted
-                                </h3>
-                                <p class="feature-desc">
-                                    No accounts, no tracking, no central server.
-                                    Messages are end-to-end encrypted via the
-                                    Reticulum network.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="container">
                     <div
+                        class="how-it-works-inner"
                         style="
-                            flex-shrink: 0;
-                            text-align: center;
-                            padding-top: 0.5rem;
+                            display: flex;
+                            align-items: flex-start;
+                            gap: 2.5rem;
+                            flex-wrap: wrap;
                         "
                     >
-                        <img
-                            src="./columba-logo.svg"
-                            alt="Columba"
+                        <div style="flex: 1; min-width: 0">
+                            <h2 class="section-title display-font">
+                                How It Works
+                            </h2>
+                            <div class="feature-grid">
+                                <div class="feature-card">
+                                    <img
+                                        class="feature-icon"
+                                        src="./icons/lucide-wifi.svg"
+                                        alt=""
+                                    />
+                                    <h3 class="feature-title">WiFi Mesh</h3>
+                                    <p class="feature-desc">
+                                        Connect to the local Yatra Mesh hotspot.
+                                        Messages hop from phone to phone across
+                                        the network without needing internet.
+                                    </p>
+                                </div>
+                                <div class="feature-card">
+                                    <img
+                                        class="feature-icon"
+                                        src="./icons/lucide-bluetooth.svg"
+                                        alt=""
+                                    />
+                                    <h3 class="feature-title">
+                                        Bluetooth Relay
+                                    </h3>
+                                    <p class="feature-desc">
+                                        When WiFi isn't available, nearby
+                                        devices relay messages over Bluetooth —
+                                        even with the screen off.
+                                    </p>
+                                </div>
+                                <div class="feature-card">
+                                    <img
+                                        class="feature-icon"
+                                        src="./icons/lucide-lock.svg"
+                                        alt=""
+                                    />
+                                    <h3 class="feature-title">
+                                        Private &amp; Encrypted
+                                    </h3>
+                                    <p class="feature-desc">
+                                        No accounts, no tracking, no central
+                                        server. Messages are end-to-end
+                                        encrypted via the Reticulum network.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="columba-credit"
                             style="
-                                width: 90px;
-                                height: 90px;
-                                border-radius: 1rem;
-                                margin: 0 auto 0.5rem;
-                            "
-                        />
-                        <p
-                            style="
-                                font-size: 0.75rem;
-                                color: rgba(183, 183, 207, 0.75);
-                                max-width: 120px;
-                                line-height: 1.4;
+                                flex-shrink: 0;
+                                text-align: center;
+                                padding-top: 0.5rem;
                             "
                         >
-                            Public software for freedom by:
-                            <a
-                                href="https://columba.network"
-                                style="color: #47b3ff"
-                                target="_blank"
-                                >https://columba.network</a
+                            <img
+                                src="./columba-logo.svg"
+                                alt="Columba"
+                                style="
+                                    width: 90px;
+                                    height: 90px;
+                                    border-radius: 1rem;
+                                    margin: 0 auto 0.5rem;
+                                "
+                            />
+                            <p
+                                style="
+                                    font-size: 0.75rem;
+                                    color: rgba(183, 183, 207, 0.75);
+                                    max-width: 120px;
+                                    line-height: 1.4;
+                                "
                             >
-                        </p>
+                                Public software for freedom by:
+                                <a
+                                    href="https://columba.network"
+                                    style="color: #47b3ff"
+                                    target="_blank"
+                                    >https://columba.network</a
+                                >
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>

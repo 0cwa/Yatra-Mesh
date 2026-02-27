@@ -521,8 +521,31 @@
                 .footer-links {
                     justify-content: center;
                 }
+                /* Musicians: time on its own line, then artist + genre side by side */
+                .sched-list li {
+                    flex-wrap: wrap;
+                    gap: 0.15rem 0.5rem;
+                    align-items: baseline;
+                }
                 .sched-time {
-                    min-width: 110px;
+                    width: 100%;
+                    min-width: unset;
+                    font-size: 0.78rem;
+                    margin-bottom: 0.05rem;
+                }
+                .sched-artist {
+                    font-size: 0.88rem;
+                    flex: 1 1 auto;
+                }
+                .sched-style {
+                    font-size: 0.75rem;
+                    white-space: normal;
+                    margin-left: 0;
+                    color: rgba(207, 207, 230, 0.55);
+                }
+                /* Workshops: title flows inline with description on same line area */
+                .sched-list li .sched-artist {
+                    font-size: 0.85rem;
                 }
             }
         </style>
@@ -2240,30 +2263,26 @@
             }
 
             // Auto-open current day
-            (function () {
+            (function() {
                 const dayDates = [
                     { date: new Date(2026, 1, 27), idx: 0 }, // Feb 27 Day 1
                     { date: new Date(2026, 1, 28), idx: 1 }, // Feb 28 Day 2
-                    { date: new Date(2026, 2, 1), idx: 2 }, // Mar 1  Day 3
-                    { date: new Date(2026, 2, 2), idx: 3 }, // Mar 2  Day 4
+                    { date: new Date(2026, 2,  1), idx: 2 }, // Mar 1  Day 3
+                    { date: new Date(2026, 2,  2), idx: 3 }, // Mar 2  Day 4
                 ];
                 const today = new Date();
-                today.setHours(0, 0, 0, 0);
+                today.setHours(0,0,0,0);
                 const days = document.querySelectorAll("details.sched-day");
                 let matched = false;
-                dayDates.forEach(function (d) {
-                    d.date.setHours(0, 0, 0, 0);
+                dayDates.forEach(function(d) {
+                    d.date.setHours(0,0,0,0);
                     if (!matched && today.getTime() === d.date.getTime()) {
                         if (days[d.idx]) days[d.idx].setAttribute("open", "");
                         matched = true;
                     }
                 });
                 // If within festival range but no exact match (night overflow), open first day
-                if (
-                    !matched &&
-                    today >= dayDates[0].date &&
-                    today <= dayDates[dayDates.length - 1].date
-                ) {
+                if (!matched && today >= dayDates[0].date && today <= dayDates[dayDates.length-1].date) {
                     if (days[0]) days[0].setAttribute("open", "");
                 }
             })();
