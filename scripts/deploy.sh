@@ -11,8 +11,8 @@ cleanup() {
 }
 trap cleanup EXIT
 
-echo "🔨  Building site..."
-npm run build
+echo "🔨  Building GitHub Pages site..."
+npm run build:gh-pages
 
 echo "🌿  Preparing '$BRANCH' branch..."
 
@@ -31,10 +31,10 @@ else
   git worktree add --orphan -b "$BRANCH" "$DEPLOY_DIR"
 fi
 
-echo "📦  Copying dist/ to deploy worktree..."
+echo "📦  Copying dist-gh-pages/ to deploy worktree..."
 # Wipe everything except the .git reference file that worktree needs
 find "$DEPLOY_DIR" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
-cp -r dist/. "$DEPLOY_DIR/"
+cp -r dist-gh-pages/. "$DEPLOY_DIR/"
 
 cd "$DEPLOY_DIR"
 git add -A
