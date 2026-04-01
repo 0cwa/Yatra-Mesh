@@ -1,7 +1,7 @@
 /**
  * Build script for GitHub Pages deployment.
  *
- * - Regenerates site HTML from the GrapesJS project JSON
+ * - Uses the checked-in site HTML from public/site/
  * - Fetches the latest real download URLs from GitHub Releases
  * - Replaces local /downloads/* paths with the actual GitHub asset URLs
  * - Strips dev-only scripts (/api/site-hash, /api/downloads/status)
@@ -137,13 +137,18 @@ async function main() {
   const siteDir = path.join(ROOT, 'public', 'site')
   const outDir = path.join(ROOT, 'dist-gh-pages')
 
-  // Generate fresh site HTML from the GrapesJS project JSON
-  if (fs.existsSync(projectPath)) {
-    const n = generateSiteFromProject(projectPath, siteDir)
-    console.log(`[gh-pages] Generated ${n} pages from project JSON`)
-  } else if (!fs.existsSync(siteDir)) {
-    console.error('[gh-pages] Neither public/gjs-project.grapesjs nor public/site/ found')
-    process.exit(1)
+  // Prefer the checked-in site HTML from the deployment snapshot.
+  // Only regenerate from the GrapesJS project if public/site/ is missing.
+  if (!fs.existsSync(siteDir)) {
+    if (fs.existsSync(projectPath)) {
+      const n = generateSiteFromProject(projectPath, siteDir)
+      console.log(`[gh-pages] Generated ${n} pages from project JSON`)
+    } else {
+      console.error('[gh-pages] Neither public/gjs-project.grapesjs nor public/site/ found')
+      process.exit(1)
+    }
+  } else {
+    console.log('[gh-pages] Using existing public/site HTML')
   }
 
   console.log('[gh-pages] Fetching latest release URLs from GitHub...')
