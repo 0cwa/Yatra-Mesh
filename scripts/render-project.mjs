@@ -251,8 +251,18 @@ export function generateSiteFromProject(projectPath, siteDir, devReload = false)
     let bodyAttrs = bodyClasses ? ` class="${bodyClasses}"` : ''
     if (bodyId) bodyAttrs += ` id="${bodyId}"`
     const slug = index === 0 ? 'index' : toSlug(page.name)
+    const targetPath = path.join(siteDir, `${slug}.html`)
+
+    // Preserve the handcrafted schedule page if it already exists.
+    // This keeps the GitHub Pages feature build intact even when the
+    // GrapesJS project JSON is still the older simplified version.
+    if (slug === 'schedule' && fs.existsSync(targetPath)) {
+      count++
+      continue
+    }
+
     const html = buildPageHtml(page.name, bodyHtml, css, devReload, bodyAttrs)
-    fs.writeFileSync(path.join(siteDir, `${slug}.html`), html)
+    fs.writeFileSync(targetPath, html)
     count++
   }
   return count

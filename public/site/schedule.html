@@ -1,27 +1,2291 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yatra Mesh Schedule</title>
-  <link rel="stylesheet" href="fonts/fonts.css">
-  <style>:root{--gjs-t-color-primary:#a06aff;--gjs-t-color-secondary:#47b3ff;--gjs-t-color-accent:#ff4fa3;--gjs-t-color-success:#2ee59d;--gjs-t-color-warning:#f7b733;--gjs-t-color-error:#ff4d4f}.gjs-t-h1{color:#ffffff;font-size:52px;line-height:1.1}.gjs-t-h2{color:#f3f3fb;font-size:32px;line-height:1.2;text-align:left;display:block}.gjs-t-body{background-color:#0b0b13;color:#eaeaf1;font-size:18px;line-height:1.6}.gjs-t-button{background-color:#a06aff;color:#ffffff;border-radius:999px;background:linear-gradient(
-    135deg,
-    var(--gjs-t-color-secondary) 0%,
-    var(--gjs-t-color-primary) 50%,
-    var(--gjs-t-color-accent) 100%
-  );background-size:300% 300%;text-shadow:0 1px 8px rgba(0, 0, 0, 0.35);box-shadow:0 10px 24px rgba(160, 106, 255, 0.45),
-    0 0 16px rgba(71, 179, 255, 0.40),
-    0 0 24px rgba(255, 79, 163, 0.35);transition:transform 240ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 240ms cubic-bezier(0.4, 0, 0.2, 1),
-    filter 240ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-position 600ms ease;animation:gradientShift 6s ease-in-out infinite}.gjs-t-button:hover{transform:translateY(-2px) scale(1.03);filter:brightness(1.1);box-shadow:0 16px 32px rgba(160, 106, 255, 0.6),
-    0 0 24px rgba(71, 179, 255, 0.5),
-    0 0 32px rgba(255, 79, 163, 0.45)}.page-root{font-family:Inter, ui-sans-serif, system-ui, sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;margin:0}*, *::before, *::after{box-sizing:border-box}body{margin:0}img{display:block}.bg-decor{pointer-events:none;position:fixed;inset:0;z-index:-1;overflow:hidden}.bg-grid{position:absolute;inset:0;background-image:radial-gradient(rgba(160,106,255,0.12) 1px, transparent 1px), radial-gradient(rgba(71,179,255,0.1) 1.5px, transparent 1.5px);background-size:26px 26px, 46px 46px;background-position:0 0, 13px 13px;animation:pulseGlow 7s ease-in-out infinite}.blob{position:absolute;border-radius:9999px;filter:blur(60px);animation:floatSlow 9s ease-in-out infinite}.blob-purple{left:-10%;top:-10%;width:min(400px,50vw);height:min(400px,50vw);background:radial-gradient(circle, rgba(160,106,255,0.4) 0%, transparent 70%)}.blob-blue{right:-10%;top:30%;width:min(440px,55vw);height:min(440px,55vw);background:radial-gradient(circle, rgba(71,179,255,0.35) 0%, transparent 70%);animation-direction:reverse;animation-delay:3s}.blob-pink{left:20%;bottom:-10%;width:min(480px,60vw);height:min(480px,60vw);background:radial-gradient(circle, rgba(255,79,163,0.3) 0%, transparent 70%);animation-delay:6s}.site-header{position:sticky;top:0;z-index:50;background:rgba(11,11,19,0.75);backdrop-filter:blur(12px);border-bottom:1px solid rgba(42,42,56,0.7);box-shadow:0 4px 24px rgba(10,10,20,0.3)}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0.7rem 1.5rem;gap:1rem;flex-wrap:nowrap}.brand-link{display:flex;align-items:center;gap:0.7rem;text-decoration:none;min-width:0;flex-shrink:0}.brand-logo{width:2.4rem;height:2.4rem;border-radius:0.4rem;object-fit:cover;flex-shrink:0}.brand-text-wrap{display:flex;flex-direction:column;min-width:0}.brand-name{font-family:Monoton;font-size:1rem;color:#ffffff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand-tagline{font-size:0.62rem;color:rgba(207,207,230,0.75);white-space:nowrap}.site-nav{display:flex;align-items:center;gap:0.4rem;flex-wrap:nowrap}.nav-link{padding:0.45rem 0.9rem;border-radius:999px;border:1px solid rgba(42,42,56,0.8);color:rgba(234,234,241,0.85);font-weight:600;font-size:0.85rem;text-decoration:none;transition:all 200ms ease;background:transparent;white-space:nowrap}.nav-link:hover{border-color:var(--gjs-t-color-primary);color:#ffffff;background:rgba(160,106,255,0.1)}.nav-active{background:linear-gradient(90deg, var(--gjs-t-color-secondary), var(--gjs-t-color-primary), var(--gjs-t-color-accent));background-size:200% 200%;animation:gradientShift 8s ease-in-out infinite;color:#ffffff;border-color:transparent}.btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.65rem 1.3rem;border-radius:999px;font-weight:600;font-size:0.92rem;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;white-space:nowrap}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn-primary{background:linear-gradient(135deg, var(--gjs-t-color-secondary) 0%, var(--gjs-t-color-primary) 50%, var(--gjs-t-color-accent) 100%);background-size:300% 300%;animation:gradientShift 6s ease-in-out infinite;color:#ffffff;box-shadow:0 8px 20px rgba(160,106,255,0.4), 0 0 16px rgba(71,179,255,0.35)}.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 12px 28px rgba(160,106,255,0.55), 0 0 20px rgba(71,179,255,0.45)}.btn-ghost{background:rgba(18,18,26,0.85);border:1px solid rgba(160,106,255,0.45);color:#ffffff;box-shadow:0 4px 12px rgba(160,106,255,0.15), inset 0 0 0 1px rgba(71,179,255,0.15)}.btn-ghost:hover{transform:translateY(-2px);border-color:rgba(160,106,255,0.7);box-shadow:0 8px 20px rgba(160,106,255,0.25), inset 0 0 0 1px rgba(71,179,255,0.3)}.btn-outline{background:transparent;border:1px solid rgba(42,42,56,0.8);color:rgba(234,234,241,0.8)}.btn-sm{padding:0.32rem 0.75rem;font-size:0.78rem}.btn-inline{margin-top:0.75rem}.btn-icon{width:1rem;height:1rem;flex-shrink:0}.site-main{flex:1}.container{max-width:1100px;margin:0 auto;padding:0 1.5rem;width:100%}.schedule-container{max-width:800px}.hero{padding:3.5rem 0 2rem}.tips-section{padding:2.5rem 0}.festival-section{padding:2.5rem 0}.downloads-section{padding:2.5rem 0}.about-section{padding:2.5rem 0}.help-section{padding:2.5rem 0}.page-hero{padding:4rem 0 2rem;text-align:center}.schedule-body-section{padding:1.5rem 0 4rem}.display-font{font-family:Monoton;letter-spacing:0.02em}.display-font-sm{font-family:Monoton;letter-spacing:0.01em}.section-title{font-size:clamp(1.8rem,4vw,2.8rem);color:#ffffff;margin-bottom:0.6rem;line-height:1.15}.section-subtitle{font-size:1.05rem;color:rgba(207,207,230,0.85);margin-bottom:2rem;max-width:680px}.page-hero-title{font-size:clamp(2rem,6vw,4rem);color:#ffffff;margin-bottom:0.75rem;line-height:1.1;overflow-wrap:break-word;word-break:break-word}.page-hero-dates{font-size:1.3rem;color:#47b3ff;font-weight:600;margin-bottom:0.5rem}.page-hero-sub{font-size:1.1rem;color:rgba(207,207,230,0.8)}.hero-eyebrow{display:inline-block;padding:0.35rem 1rem;border-radius:999px;background:rgba(71,179,255,0.1);border:1px solid rgba(71,179,255,0.3);color:#47b3ff;font-size:0.88rem;font-weight:600;margin-bottom:1.25rem;letter-spacing:0.04em}.hero-title{font-size:clamp(2rem, 6vw, 4rem);color:#ffffff;margin-bottom:1rem;line-height:1.05;overflow-wrap:break-word;word-break:break-word}.hero-subtitle{font-size:clamp(1rem,2.5vw,1.15rem);color:rgba(214,214,234,0.9);margin-bottom:1.5rem;max-width:540px;line-height:1.6}.hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}.hero-note{font-size:0.85rem;color:rgba(183,183,207,0.8);max-width:520px;line-height:1.5}.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}.tip-card{padding:1.4rem;border-radius:1rem;border:1px solid rgba(42,42,56,0.85);background:rgba(15,15,24,0.7);backdrop-filter:blur(6px)}.tip-card-blue{border-color:rgba(71,179,255,0.25);box-shadow:0 0 24px rgba(71,179,255,0.06) inset}.tip-card-purple{border-color:rgba(160,106,255,0.25);box-shadow:0 0 24px rgba(160,106,255,0.06) inset}.tip-card-pink{border-color:rgba(255,79,163,0.25);box-shadow:0 0 24px rgba(255,79,163,0.06) inset}.tip-icon{width:1.75rem;height:1.75rem;margin-bottom:0.65rem}.tip-title{font-size:1rem;font-weight:700;color:#ffffff;margin-bottom:0.4rem}.tip-body{font-size:0.92rem;color:rgba(207,207,230,0.85);line-height:1.6}.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}.info-card{padding:1.25rem;border-radius:1rem;border:1px solid rgba(42,42,56,0.85);background:rgba(15,15,24,0.7);backdrop-filter:blur(6px)}.info-card-title{display:flex;align-items:center;gap:0.5rem;font-size:1rem;font-weight:700;color:#ffffff;margin-bottom:0.65rem;line-height:1.3}.info-icon{width:1.2rem;height:1.2rem;flex-shrink:0}.info-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem}.info-list, li{font-size:0.88rem;color:rgba(207,207,230,0.85);padding-left:1.1rem;position:relative;line-height:1.5}.info-list, li::before{content:"→";position:absolute;left:0;color:#47b3ff;font-size:0.75rem;top:0.15rem}.dl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}.dl-card{padding:1.4rem;border-radius:1rem;border:1px solid rgba(42,42,56,0.85);background:rgba(15,15,24,0.7);backdrop-filter:blur(6px);display:flex;flex-direction:column;gap:0.9rem}.dl-card-featured{border-color:rgba(160,106,255,0.4);box-shadow:0 0 32px rgba(160,106,255,0.08) inset, 0 8px 32px rgba(160,106,255,0.15)}.dl-card-header{display:flex;align-items:center;gap:0.8rem}.dl-app-logo{width:2.75rem;height:2.75rem;border-radius:0.6rem;object-fit:cover;flex-shrink:0}.dl-app-name{font-size:1.05rem;font-weight:700;color:#ffffff}.dl-badge{display:inline-block;padding:0.12rem 0.55rem;border-radius:999px;background:rgba(160,106,255,0.2);border:1px solid rgba(160,106,255,0.4);color:#a06aff;font-size:0.72rem;font-weight:600;margin-top:0.15rem}.dl-badge-dim{background:rgba(42,42,56,0.5);border-color:rgba(42,42,56,0.8);color:rgba(207,207,230,0.65)}.dl-desc{font-size:0.92rem;color:rgba(207,207,230,0.85);line-height:1.6}.dl-actions{display:flex;align-items:center;gap:0.65rem;flex-wrap:wrap}.dl-actions-inline{display:flex;gap:0.45rem;flex-wrap:wrap}.dl-note{font-size:0.8rem;color:rgba(183,183,207,0.65);margin-top:auto;line-height:1.4}.dl-icon{width:1.3rem;height:1.3rem}.dl-platform-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem}.dl-platform-item{display:flex;align-items:center;gap:0.65rem;padding:0.55rem 0.7rem;border-radius:0.5rem;background:rgba(42,42,56,0.3)}.dl-platform-name{font-weight:600;flex:1;font-size:0.9rem}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}.feature-card{padding:1.4rem;border-radius:1rem;border:1px solid rgba(42,42,56,0.85);background:rgba(15,15,24,0.7);backdrop-filter:blur(6px)}.feature-icon{width:1.75rem;height:1.75rem;margin-bottom:0.65rem}.feature-title{font-weight:700;color:#ffffff;margin-bottom:0.4rem;font-size:1rem}.feature-desc{font-size:0.92rem;color:rgba(207,207,230,0.85);line-height:1.6}.site-footer{border-top:1px solid rgba(42,42,56,0.7);padding:1.75rem 0;background:rgba(11,11,19,0.5)}.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.25rem;max-width:1100px;margin:0 auto;padding:0 1.5rem}.footer-brand{display:flex;align-items:center;gap:0.65rem}.footer-logo{width:1.8rem;height:1.8rem;border-radius:0.3rem;object-fit:cover;opacity:0.7}.footer-name{font-family:Monoton;font-size:0.85rem;color:rgba(255,255,255,0.65)}.footer-copy{font-size:0.72rem;color:rgba(183,183,207,0.55)}.footer-links{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap}.footer-link{padding:0.3rem 0.75rem;border-radius:999px;border:1px solid rgba(42,42,56,0.7);color:rgba(207,207,230,0.65);font-size:0.82rem;text-decoration:none;transition:all 200ms ease}.footer-link:hover{border-color:rgba(160,106,255,0.4);color:#ffffff}.sched-day{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;margin-bottom:1rem;overflow:hidden;transition:all 0.3s ease}.sched-day:hover{border-color:rgba(160,106,255,0.28);background:rgba(255,255,255,0.04)}.sched-day[open]{border-color:rgba(160,106,255,0.3);background:rgba(255,255,255,0.04)}.sched-day-header{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;cursor:pointer;list-style:none;user-select:none}.sched-day-header::marker{display:none;font-size:0}.sched-day-header::-webkit-details-marker{display:none}.sched-day-header::after{content:"+";margin-left:auto;font-size:1.4rem;color:#47b3ff;font-weight:300;transition:transform 0.2s ease}.sched-day[open] > summary::after{transform:rotate(45deg)}.sched-day-label{background:linear-gradient(135deg, #a06aff, #47b3ff);color:#0b0b13;padding:0.28rem 0.8rem;border-radius:999px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap}.sched-day-date{font-size:1.05rem;color:#ffffff;flex:1}.sched-day-badge{font-size:0.82rem;color:rgba(234,234,241,0.5);white-space:nowrap}.sched-day-content{padding:0 1.4rem 1.4rem;border-top:1px solid rgba(255,255,255,0.05)}.sched-list{list-style:none;padding:0;margin:0}.sched-list, li{padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:0.75rem;align-items:flex-start}.sched-list, li:last-child{border-bottom:none}.sched-time{color:#a06aff;min-width:130px;font-weight:600;white-space:nowrap;font-size:0.9rem}.sched-placeholder{color:rgba(234,234,241,0.45);font-style:italic;padding:1rem 0}.help-section-title{font-size:clamp(1.4rem,4vw,2rem);color:#ffffff;margin-bottom:0.85rem;line-height:1.2}.help-lead{font-size:1rem;color:rgba(207,207,230,0.85);margin-bottom:1.75rem;line-height:1.7;max-width:720px}.steps-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1rem}.step-item{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem 1.4rem;border-radius:1rem;border:1px solid rgba(42,42,56,0.8);background:rgba(15,15,24,0.7);backdrop-filter:blur(6px)}.step-num{display:flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;border-radius:50%;background:linear-gradient(135deg, #a06aff, #47b3ff);color:#0b0b13;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:0.1rem}.step-body{flex:1;min-width:0}.step-title{display:block;font-weight:700;color:#ffffff;margin-bottom:0.35rem;font-size:0.98rem}.step-desc{font-size:0.92rem;color:rgba(207,207,230,0.85);line-height:1.6;margin:0}.trouble-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}.trouble-item{padding:1.4rem;border-radius:1rem;border:1px solid rgba(42,42,56,0.85);background:rgba(15,15,24,0.7);backdrop-filter:blur(6px)}.trouble-q{font-size:0.98rem;font-weight:700;color:#ffffff;margin-bottom:0.45rem}.trouble-a{font-size:0.92rem;color:rgba(207,207,230,0.85);line-height:1.6}.steps-list, li{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem 1.4rem;border-radius:1rem;border:1px solid rgba(42,42,56,0.8);background:rgba(15,15,24,0.7);backdrop-filter:blur(6px);list-style:none}.steps-list, li::marker{display:none;content:''}.dl-platform-list, li{display:flex;align-items:center;gap:0.65rem;padding:0.55rem 0.7rem;border-radius:0.5rem;background:rgba(42,42,56,0.3);list-style:none}@keyframes floatSlow{0%{transform:translateY(0px) scale(1)}50%{transform:translateY(-12px) scale(1.03)}100%{transform:translateY(0px) scale(1)}}@keyframes rotateDrift{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(6deg) scale(1.02)}100%{transform:rotate(0deg) scale(1)}}@keyframes pulseGlow{0%{opacity:0.55}50%{opacity:0.9}100%{opacity:0.55}}@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@media (max-width: 768px){.info-grid{grid-template-columns:1fr}.info-list, li{font-size:0.82rem}.tips-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}.dl-grid{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr}.trouble-grid{grid-template-columns:1fr}.site-nav{gap:0.2rem}.nav-link{padding:0.38rem 0.55rem;font-size:0.75rem}.hero{padding:2.5rem 0 1.5rem}.footer-inner{flex-direction:column;gap:0.85rem;text-align:center}.footer-links{justify-content:center}}@media (max-width: 480px){.header-inner{padding:0.5rem 1rem;gap:0.5rem}.brand-tagline{display:none}.hero-title{font-size:clamp(2rem, 10vw, 3.5rem)}.hero-actions{flex-direction:column;align-items:flex-start}.trouble-grid{grid-template-columns:1fr}}</style>
-</head>
-<body class="gjs-t-body page-root">
-<header class="site-header"><div class="header-inner"><a class="brand-link" href="index.html"><img class="brand-logo" src="/images/YatraMeshLogo.png" alt="Yatra Mesh"><div class="brand-text-wrap"><span class="brand-name">Yatra Mesh</span><span class="brand-tagline">P2P · Heart 2 Heart</span></div></a><nav class="site-nav"><a class="nav-link" href="index.html">Home</a><a class="nav-link nav-active" href="schedule.html">Schedule</a><a class="nav-link" href="help.html">Help</a></nav></div></header><div class="bg-decor" aria-hidden="true"><div class="bg-grid"></div><div class="blob blob-purple"></div><div class="blob blob-blue"></div><div class="blob blob-pink"></div></div><main class="site-main"><section class="page-hero"><div class="container"><h1 class="page-hero-title display-font">Yatra Festival 2026</h1><p class="page-hero-dates">February 27 – March 2, 2026</p><p class="page-hero-sub">4 Days of Music, Connection & Off-Grid Magic</p></div></section><section class="schedule-body-section"><div class="container schedule-container"><details class="sched-day"><summary class="sched-day-header"><span class="sched-day-label">Day 1</span><span class="sched-day-date display-font-sm">Friday, Feb 27</span><span class="sched-day-badge">Opening Day</span></summary><div class="sched-day-content"><ul class="sched-list"><li><strong>9:30 AM</strong> — Gates Open</li><li><strong>4:00 PM</strong> — Opening Ceremony</li><li><strong>6:00 PM</strong> — Music Begins</li></ul></div></details><details class="sched-day"><summary class="sched-day-header"><span class="sched-day-label">Day 2</span><span class="sched-day-date display-font-sm">Saturday, Feb 28</span><span class="sched-day-badge">Full Day</span></summary><div class="sched-day-content"><p class="sched-placeholder">Full day of music — detailed schedule coming soon.</p></div></details><details class="sched-day"><summary class="sched-day-header"><span class="sched-day-label">Day 3</span><span class="sched-day-date display-font-sm">Sunday, Mar 1</span><span class="sched-day-badge">Full Day</span></summary><div class="sched-day-content"><p class="sched-placeholder">Full day of music — detailed schedule coming soon.</p></div></details><details class="sched-day"><summary class="sched-day-header"><span class="sched-day-label">Day 4</span><span class="sched-day-date display-font-sm">Monday, Mar 2</span><span class="sched-day-badge">Final Day</span></summary><div class="sched-day-content"><ul class="sched-list"><li><strong>2:00 PM</strong> — Music Ends</li><li><strong>2:00–2:45 PM</strong> — Closing Ceremony</li><li><strong>3:00 PM</strong> — Festival Ends</li><li><strong>6:00 PM</strong> — Depart site (unless prior arrangements)</li><li><strong>6:30 PM</strong> — Gates Close</li></ul></div></details></div></section></main><footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img class="footer-logo" src="/images/YatraMeshLogo.png" alt="Yatra Mesh"><div class="[object Object]"><div class="footer-name">Yatra Mesh</div><div class="footer-copy">© 2026 Yatra Festival · Experimental Captive Portal</div></div></div><div class="footer-links"><a class="footer-link" href="index.html">Home</a><a class="footer-link" href="schedule.html">Schedule</a><a class="footer-link" href="help.html">Help</a></div></div></footer>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Yatra Mesh Schedule</title>
+        <link rel="stylesheet" href="./fonts/fonts.css" />
+        <style>
+            :root {
+                --gjs-t-color-primary: #a06aff;
+                --gjs-t-color-secondary: #47b3ff;
+                --gjs-t-color-accent: #ff4fa3;
+                --gjs-t-color-success: #2ee59d;
+                --gjs-t-color-warning: #f7b733;
+                --gjs-t-color-error: #ff4d4f;
+            }
+            .gjs-t-h1 {
+                color: #ffffff;
+                font-size: 52px;
+                line-height: 1.1;
+            }
+            .gjs-t-h2 {
+                color: #f3f3fb;
+                font-size: 32px;
+                line-height: 1.2;
+                text-align: left;
+                display: block;
+            }
+            .gjs-t-body {
+                background-color: #0b0b13;
+                color: #eaeaf1;
+                font-size: 18px;
+                line-height: 1.6;
+            }
+            .gjs-t-button {
+                background-color: #a06aff;
+                color: #ffffff;
+                border-radius: 999px;
+                background: linear-gradient(
+                    135deg,
+                    var(--gjs-t-color-secondary) 0%,
+                    var(--gjs-t-color-primary) 50%,
+                    var(--gjs-t-color-accent) 100%
+                );
+                background-size: 300% 300%;
+                text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+                box-shadow:
+                    0 10px 24px rgba(160, 106, 255, 0.45),
+                    0 0 16px rgba(71, 179, 255, 0.4),
+                    0 0 24px rgba(255, 79, 163, 0.35);
+                transition:
+                    transform 240ms cubic-bezier(0.4, 0, 0.2, 1),
+                    box-shadow 240ms cubic-bezier(0.4, 0, 0.2, 1),
+                    filter 240ms cubic-bezier(0.4, 0, 0.2, 1),
+                    background-position 600ms ease;
+                animation: gradientShift 6s ease-in-out infinite;
+            }
+            .page-root {
+                font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+                -webkit-font-smoothing: antialiased;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+            }
+            img {
+                display: block;
+            }
+            .bg-decor {
+                pointer-events: none;
+                position: fixed;
+                inset: 0;
+                z-index: -1;
+                overflow: hidden;
+            }
+            .bg-grid {
+                position: absolute;
+                inset: 0;
+                background-image:
+                    radial-gradient(
+                        rgba(160, 106, 255, 0.12) 1px,
+                        transparent 1px
+                    ),
+                    radial-gradient(
+                        rgba(71, 179, 255, 0.1) 1.5px,
+                        transparent 1.5px
+                    );
+                background-size:
+                    26px 26px,
+                    46px 46px;
+                background-position:
+                    0 0,
+                    13px 13px;
+                animation: pulseGlow 7s ease-in-out infinite;
+            }
+            .blob {
+                position: absolute;
+                border-radius: 9999px;
+                filter: blur(60px);
+                animation: floatSlow 9s ease-in-out infinite;
+            }
+            .blob-purple {
+                left: -10%;
+                top: -10%;
+                width: min(400px, 50vw);
+                height: min(400px, 50vw);
+                background: radial-gradient(
+                    circle,
+                    rgba(160, 106, 255, 0.4) 0%,
+                    transparent 70%
+                );
+            }
+            .blob-blue {
+                right: -10%;
+                top: 30%;
+                width: min(440px, 55vw);
+                height: min(440px, 55vw);
+                background: radial-gradient(
+                    circle,
+                    rgba(71, 179, 255, 0.35) 0%,
+                    transparent 70%
+                );
+                animation-direction: reverse;
+                animation-delay: 3s;
+            }
+            .blob-pink {
+                left: 20%;
+                bottom: -10%;
+                width: min(480px, 60vw);
+                height: min(480px, 60vw);
+                background: radial-gradient(
+                    circle,
+                    rgba(255, 79, 163, 0.3) 0%,
+                    transparent 70%
+                );
+                animation-delay: 6s;
+            }
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 50;
+                background: rgba(11, 11, 19, 0.75);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid rgba(42, 42, 56, 0.7);
+                box-shadow: 0 4px 24px rgba(10, 10, 20, 0.3);
+            }
+            .header-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0.7rem 1.5rem;
+                gap: 1rem;
+                flex-wrap: nowrap;
+            }
+            .brand-link {
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                text-decoration: none;
+                min-width: 0;
+                flex-shrink: 0;
+            }
+            .brand-logo {
+                width: 2.4rem;
+                height: 2.4rem;
+                border-radius: 0.4rem;
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+            .brand-text-wrap {
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+            }
+            .brand-name {
+                font-family: Monoton;
+                font-size: 1rem;
+                color: #ffffff;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .brand-tagline {
+                font-size: 0.62rem;
+                color: rgba(207, 207, 230, 0.75);
+                white-space: nowrap;
+            }
+            .site-nav {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                flex-wrap: nowrap;
+            }
+            .nav-link {
+                padding: 0.45rem 0.9rem;
+                border-radius: 999px;
+                border: 1px solid rgba(42, 42, 56, 0.8);
+                color: rgba(234, 234, 241, 0.85);
+                font-weight: 600;
+                font-size: 0.85rem;
+                text-decoration: none;
+                transition: all 200ms ease;
+                background: transparent;
+                white-space: nowrap;
+            }
+            .nav-link:hover {
+                border-color: var(--gjs-t-color-primary);
+                color: #ffffff;
+                background: rgba(160, 106, 255, 0.1);
+            }
+            .nav-active {
+                background: linear-gradient(
+                    90deg,
+                    var(--gjs-t-color-secondary),
+                    var(--gjs-t-color-primary),
+                    var(--gjs-t-color-accent)
+                );
+                background-size: 200% 200%;
+                animation: gradientShift 8s ease-in-out infinite;
+                color: #ffffff;
+                border-color: transparent;
+            }
+            .site-main {
+                flex: 1;
+            }
+            .container {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 1.5rem;
+                width: 100%;
+            }
+            .schedule-container {
+                max-width: 860px;
+            }
+            .page-hero {
+                padding: 4rem 0 2rem;
+                text-align: center;
+            }
+            .schedule-body-section {
+                padding: 1.5rem 0 4rem;
+            }
+            .display-font {
+                font-family: Monoton;
+                letter-spacing: 0.02em;
+            }
+            .display-font-sm {
+                font-family: Monoton;
+                letter-spacing: 0.01em;
+            }
+            .page-hero-title {
+                font-size: clamp(2rem, 6vw, 4rem);
+                color: #ffffff;
+                margin-bottom: 0.75rem;
+                line-height: 1.1;
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
+            .page-hero-dates {
+                font-size: 1.3rem;
+                color: #47b3ff;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+            .page-hero-sub {
+                font-size: 1.1rem;
+                color: rgba(207, 207, 230, 0.8);
+            }
+            .sched-day {
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 1rem;
+                margin-bottom: 1rem;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+            .sched-day:hover {
+                border-color: rgba(160, 106, 255, 0.28);
+                background: rgba(255, 255, 255, 0.04);
+            }
+            .sched-day[open] {
+                border-color: rgba(160, 106, 255, 0.3);
+                background: rgba(255, 255, 255, 0.04);
+            }
+            .sched-day-header {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1.2rem 1.4rem;
+                cursor: pointer;
+                list-style: none;
+                user-select: none;
+            }
+            .sched-day-header::marker,
+            .sched-day-header::-webkit-details-marker {
+                display: none;
+            }
+            .sched-day-header::after {
+                content: "+";
+                margin-left: auto;
+                font-size: 1.4rem;
+                color: #47b3ff;
+                font-weight: 300;
+                transition: transform 0.2s ease;
+            }
+            .sched-day[open] > summary::after {
+                transform: rotate(45deg);
+            }
+            .sched-day-label {
+                background: linear-gradient(135deg, #a06aff, #47b3ff);
+                color: #0b0b13;
+                padding: 0.28rem 0.8rem;
+                border-radius: 999px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                white-space: nowrap;
+            }
+            .sched-day-date {
+                font-size: 1.05rem;
+                color: #ffffff;
+                flex: 1;
+            }
+            .sched-day-badge {
+                font-size: 0.82rem;
+                color: rgba(234, 234, 241, 0.5);
+                white-space: nowrap;
+            }
+            .sched-day-content {
+                padding: 0 1.4rem 1.4rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
 
-<div id="_dl-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(8,10,20,0.92);backdrop-filter:blur(8px);border-top:1px solid #1e2d50;padding:10px 20px;align-items:center;gap:12px;flex-wrap:wrap;font-family:sans-serif"><span style="color:#8b9cbc;font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:600">Downloads</span><span id="_dl-links" style="display:contents"></span></div><script>fetch('/api/downloads/status').then(function(r){return r.json()}).then(function(items){var avail=items.filter(function(d){return d.available});if(!avail.length)return;var svg='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';document.getElementById('_dl-links').innerHTML=avail.map(function(d){return'<a href="'+d.downloadPath+'" download style="display:inline-flex;align-items:center;gap:6px;background:#1a2540;color:#7eb8f7;border:1px solid #2a3a60;padding:6px 14px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:500;white-space:nowrap;margin-left:12px">'+svg+d.label+(d.tag?'<span style="opacity:.6;font-size:11px;margin-left:4px">'+d.tag+'</span>':'')+'</a>';}).join('');var bar=document.getElementById('_dl-bar');bar.style.display='flex';bar.style.alignItems='center';document.body.style.paddingBottom='52px';}).catch(function(){});</script>
-</body>
+            /* --- TAB STYLES --- */
+            .stage-tabs {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin: 1rem 0 0.75rem;
+            }
+            .stage-tab-btn {
+                padding: 0.35rem 0.85rem;
+                border-radius: 999px;
+                border: 1px solid rgba(160, 106, 255, 0.4);
+                background: rgba(15, 15, 24, 0.7);
+                color: rgba(207, 207, 230, 0.75);
+                font-size: 0.78rem;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                cursor: pointer;
+                transition: all 200ms ease;
+                text-transform: uppercase;
+            }
+            .stage-tab-btn:hover {
+                border-color: rgba(160, 106, 255, 0.75);
+                color: #fff;
+                background: rgba(160, 106, 255, 0.15);
+            }
+            .stage-tab-btn.active {
+                background: linear-gradient(135deg, #a06aff, #47b3ff);
+                color: #0b0b13;
+                border-color: transparent;
+                box-shadow: 0 4px 14px rgba(160, 106, 255, 0.4);
+            }
+            .stage-panel {
+                display: none;
+            }
+            .stage-panel.active {
+                display: block;
+            }
+
+            /* --- SCHEDULE TABLE --- */
+            .sched-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .sched-list li {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                display: flex;
+                gap: 0.75rem;
+                align-items: flex-start;
+                text-transform: uppercase;
+            }
+            .sched-list li:last-child {
+                border-bottom: none;
+            }
+            .sched-time {
+                color: #a06aff;
+                min-width: 155px;
+                font-weight: 600;
+                white-space: nowrap;
+                font-size: 0.88rem;
+                flex-shrink: 0;
+            }
+            .sched-artist {
+                color: #ffffff;
+                font-weight: 700;
+                font-size: 0.9rem;
+                min-width: 0;
+            }
+            .sched-style {
+                color: rgba(207, 207, 230, 0.6);
+                font-size: 0.8rem;
+                margin-left: 0.5rem;
+                white-space: nowrap;
+            }
+
+            .site-footer {
+                border-top: 1px solid rgba(42, 42, 56, 0.7);
+                padding: 1.75rem 0;
+                background: rgba(11, 11, 19, 0.5);
+            }
+            .footer-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 1.25rem;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 1.5rem;
+            }
+            .footer-brand {
+                display: flex;
+                align-items: center;
+                gap: 0.65rem;
+            }
+            .footer-logo {
+                width: 1.8rem;
+                height: 1.8rem;
+                border-radius: 0.3rem;
+                object-fit: cover;
+                opacity: 0.7;
+            }
+            .footer-name {
+                font-family: Monoton;
+                font-size: 0.85rem;
+                color: rgba(255, 255, 255, 0.65);
+            }
+            .footer-copy {
+                font-size: 0.72rem;
+                color: rgba(183, 183, 207, 0.55);
+            }
+            .footer-links {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                flex-wrap: wrap;
+            }
+            .footer-link {
+                padding: 0.3rem 0.75rem;
+                border-radius: 999px;
+                border: 1px solid rgba(42, 42, 56, 0.7);
+                color: rgba(207, 207, 230, 0.65);
+                font-size: 0.82rem;
+                text-decoration: none;
+                transition: all 200ms ease;
+            }
+            .footer-link:hover {
+                border-color: rgba(160, 106, 255, 0.4);
+                color: #ffffff;
+            }
+            @keyframes floatSlow {
+                0% {
+                    transform: translateY(0px) scale(1);
+                }
+                50% {
+                    transform: translateY(-12px) scale(1.03);
+                }
+                100% {
+                    transform: translateY(0px) scale(1);
+                }
+            }
+            @keyframes pulseGlow {
+                0% {
+                    opacity: 0.55;
+                }
+                50% {
+                    opacity: 0.9;
+                }
+                100% {
+                    opacity: 0.55;
+                }
+            }
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            @media (max-width: 768px) {
+                .site-nav {
+                    gap: 0.2rem;
+                }
+                .nav-link {
+                    padding: 0.38rem 0.55rem;
+                    font-size: 0.75rem;
+                }
+                .footer-inner {
+                    flex-direction: column;
+                    gap: 0.85rem;
+                    text-align: center;
+                }
+                .footer-links {
+                    justify-content: center;
+                }
+                /* Musicians: time on its own line, then artist + genre side by side */
+                .sched-list li {
+                    flex-wrap: wrap;
+                    gap: 0.15rem 0.5rem;
+                    align-items: baseline;
+                }
+                .sched-time {
+                    width: 100%;
+                    min-width: unset;
+                    font-size: 0.78rem;
+                    margin-bottom: 0.05rem;
+                }
+                .sched-artist {
+                    font-size: 0.88rem;
+                    flex: 1 1 auto;
+                }
+                .sched-style {
+                    font-size: 0.75rem;
+                    white-space: normal;
+                    margin-left: 0;
+                    color: rgba(207, 207, 230, 0.55);
+                }
+                /* Workshops: title flows inline with description on same line area */
+                .sched-list li .sched-artist {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+    </head>
+    <body class="gjs-t-body page-root">
+        <header class="site-header">
+            <div class="header-inner">
+                <a class="brand-link" href="./index.html"
+                    ><img
+                        class="brand-logo"
+                        src="images/YatraMeshLogo.png"
+                        alt="Yatra Mesh"
+                    />
+                    <div class="brand-text-wrap">
+                        <span class="brand-name">Yatra Mesh</span
+                        ><span class="brand-tagline">P2P · Heart 2 Heart</span>
+                    </div></a
+                >
+                <nav class="site-nav">
+                    <a class="nav-link" href="./index.html">Home</a
+                    ><a class="nav-link nav-active" href="./schedule.html"
+                        >Schedule</a
+                    ><a class="nav-link" href="./help.html">Help</a>
+                </nav>
+            </div>
+        </header>
+        <div class="bg-decor" aria-hidden="true">
+            <div class="bg-grid"></div>
+            <div class="blob blob-purple"></div>
+            <div class="blob blob-blue"></div>
+            <div class="blob blob-pink"></div>
+        </div>
+        <main class="site-main">
+            <section class="page-hero">
+                <div class="container">
+                    <h1 class="page-hero-title display-font">
+                        Yatra Festival 2026
+                    </h1>
+                    <p class="page-hero-dates">February 27 – March 2, 2026</p>
+                    <p class="page-hero-sub">
+                        4 Days of Music, Connection &amp; Off-Grid Magic
+                    </p>
+                </div>
+            </section>
+
+            <section class="schedule-body-section">
+                <div class="container schedule-container">
+                    <!-- ===== DAY 1 – FRIDAY FEB 27 ===== -->
+                    <details class="sched-day">
+                        <summary class="sched-day-header">
+                            <span class="sched-day-label">Day 1</span>
+                            <span class="sched-day-date display-font-sm"
+                                >Friday, Feb 27</span
+                            >
+                            <span class="sched-day-badge">Opening Day</span>
+                        </summary>
+                        <div class="sched-day-content">
+                            <div class="stage-tabs">
+                                <button
+                                    class="stage-tab-btn active"
+                                    onclick="
+                                        switchTab(this, 'd1', 'main-stage')
+                                    "
+                                >
+                                    MAIN STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd1', 'aion-stage')
+                                    "
+                                >
+                                    AION STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd1', 'pulse-stage')
+                                    "
+                                >
+                                    PULSE STAGE
+                                </button>
+                            </div>
+
+                            <div id="d1-main-stage" class="stage-panel active">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >16:30 – 18:00</span
+                                        ><span class="sched-artist"
+                                            >OPENING CEREMONY</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >18:00 – 20:00</span
+                                        ><span class="sched-artist"
+                                            >DIVINORI</span
+                                        ><span class="sched-style"
+                                            >FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:00 – 21:30</span
+                                        ><span class="sched-artist"
+                                            >TRANSFORMER</span
+                                        ><span class="sched-style"
+                                            >FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:30 – 23:00</span
+                                        ><span class="sched-artist"
+                                            >ORGANIS VIBRATION</span
+                                        ><span class="sched-style"
+                                            >FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >23:00 – 00:30</span
+                                        ><span class="sched-artist"
+                                            >VOLKIENE</span
+                                        ><span class="sched-style"
+                                            >LIVE FULL ON</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d1-aion-stage" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >18:30 – 20:00</span
+                                        ><span class="sched-artist">KOHAEL</span
+                                        ><span class="sched-style"
+                                            >AION - OPENING CEREMONY : TRIBAL
+                                            SOUND JOURNEY</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:00 – 21:30</span
+                                        ><span class="sched-artist"
+                                            >ANDRÉ GOMESZ</span
+                                        ><span class="sched-style"
+                                            >LIVE IMPROV &amp; ORIGINALS</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:30 – 22:30</span
+                                        ><span class="sched-artist">MYSTIQ</span
+                                        ><span class="sched-style"
+                                            >TRIBAL CHILL</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >22:30 – 00:00</span
+                                        ><span class="sched-artist">JAYLA</span
+                                        ><span class="sched-style"
+                                            >BASS ECSTATIC DANCE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >00:00 – 01:00</span
+                                        ><span class="sched-artist"
+                                            >AQUAPOODLE</span
+                                        ><span class="sched-style"
+                                            >DEEP HOUSE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >01:00 – 02:30</span
+                                        ><span class="sched-artist">BABA</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:30 – 04:00</span
+                                        ><span class="sched-artist"
+                                            >AKASHIC RECORDS</span
+                                        ><span class="sched-style"
+                                            >TRIBAL BASS</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >04:00 – 05:00</span
+                                        ><span class="sched-artist"
+                                            >DIVINORI IN DUB</span
+                                        ><span class="sched-style">TRIBAL</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:00 – 06:00</span
+                                        ><span class="sched-artist">SYZYGY</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >06:00 – 07:00</span
+                                        ><span class="sched-artist"
+                                            >DANIMAL</span
+                                        ><span class="sched-style"
+                                            >CHILL WORLD</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d1-pulse-stage" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >18:30 – 20:00</span
+                                        ><span class="sched-artist">ZÆNTH</span
+                                        ><span class="sched-style"
+                                            >MELODIC TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:00 – 21:30</span
+                                        ><span class="sched-artist">HALO</span
+                                        ><span class="sched-style"
+                                            >DEEP TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:30 – 23:00</span
+                                        ><span class="sched-artist"
+                                            >RICH PARKER</span
+                                        ><span class="sched-style">TECHNO</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >23:00 – 00:30</span
+                                        ><span class="sched-artist"
+                                            >MAIA KATZ</span
+                                        ><span class="sched-style"
+                                            >GROOVE TECHNO</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- ===== DAY 2 – SATURDAY FEB 28 ===== -->
+                    <details class="sched-day">
+                        <summary class="sched-day-header">
+                            <span class="sched-day-label">Day 2</span>
+                            <span class="sched-day-date display-font-sm"
+                                >Saturday, Feb 28</span
+                            >
+                            <span class="sched-day-badge">Full Day</span>
+                        </summary>
+                        <div class="sched-day-content">
+                            <div class="stage-tabs">
+                                <button
+                                    class="stage-tab-btn active"
+                                    onclick="
+                                        switchTab(this, 'd2', 'main-stage')
+                                    "
+                                >
+                                    MAIN STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd2', 'aion-stage')
+                                    "
+                                >
+                                    AION STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd2', 'pulse-stage')
+                                    "
+                                >
+                                    PULSE STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd2', 'aion-workshops')
+                                    "
+                                >
+                                    AION WORKSHOPS
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(
+                                            this,
+                                            'd2',
+                                            'circus-workshops',
+                                        )
+                                    "
+                                >
+                                    CIRCUS WORKSHOPS
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(
+                                            this,
+                                            'd2',
+                                            'tribal-workshops',
+                                        )
+                                    "
+                                >
+                                    TRIBAL ZONE WORKSHOPS
+                                </button>
+                            </div>
+
+                            <div id="d2-main-stage" class="stage-panel active">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >00:30 – 02:00</span
+                                        ><span class="sched-artist"
+                                            >THELIOS</span
+                                        ><span class="sched-style"
+                                            >NIGHT TIME</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:00 – 03:30</span
+                                        ><span class="sched-artist"
+                                            >SUBCHAMATKAR</span
+                                        ><span class="sched-style"
+                                            >NIGHT TIME</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >03:30 – 05:00</span
+                                        ><span class="sched-artist"
+                                            >PHADOOF</span
+                                        ><span class="sched-style"
+                                            >NIGHT TIME</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:00 – 06:30</span
+                                        ><span class="sched-artist">MYSTIQ</span
+                                        ><span class="sched-style"
+                                            >FORREST</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >06:30 – 07:30</span
+                                        ><span class="sched-artist"
+                                            >SEMILOCYBE</span
+                                        ><span class="sched-style"
+                                            >DARK PROG</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >07:30 – 10:00</span
+                                        ><span class="sched-artist">BREAK</span
+                                        ><span class="sched-style">SHANTI</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >10:00 – 11:30</span
+                                        ><span class="sched-artist">BABA</span
+                                        ><span class="sched-style"
+                                            >PSYBIENT</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:30 – 13:00</span
+                                        ><span class="sched-artist"
+                                            >AKAM CEREMONY - AKASHIC
+                                            RECORDS</span
+                                        ><span class="sched-style"
+                                            >ECSTATIC DANCE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >13:00 – 14:00</span
+                                        ><span class="sched-artist"
+                                            >EBONY WILLIS</span
+                                        ><span class="sched-style"
+                                            >PSY TECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:00 – 15:30</span
+                                        ><span class="sched-artist"
+                                            >DJ SLASH</span
+                                        ><span class="sched-style"
+                                            >PSY TECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >15:30 – 16:30</span
+                                        ><span class="sched-artist"
+                                            >AKARI SYSTEM</span
+                                        ><span class="sched-style"
+                                            >PSY TECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >16:30 – 18:00</span
+                                        ><span class="sched-artist"
+                                            >ELE LUZ</span
+                                        ><span class="sched-style">PROG</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >18:00 – 20:00</span
+                                        ><span class="sched-artist">AIRI</span
+                                        ><span class="sched-style"
+                                            >DARK PROG</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:00 – 21:30</span
+                                        ><span class="sched-artist">MELT</span
+                                        ><span class="sched-style"
+                                            >FORREST PROG</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:30 – 23:00</span
+                                        ><span class="sched-artist">IJJIGA</span
+                                        ><span class="sched-style"
+                                            >NIGHT FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >23:00 – 00:30</span
+                                        ><span class="sched-artist"
+                                            >UNEXPECTED</span
+                                        ><span class="sched-style"
+                                            >NIGHT FULL ON</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d2-aion-stage" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >19:00 – 20:00</span
+                                        ><span class="sched-artist">HANWHO</span
+                                        ><span class="sched-style"
+                                            >LIVE ELECTRONIC &amp; BASS</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:00 – 21:00</span
+                                        ><span class="sched-artist"
+                                            >BRUTAL FAIRY</span
+                                        ><span class="sched-style">DUB</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:00 – 21:15</span
+                                        ><span class="sched-artist"
+                                            >SETUP BREAK</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:15 – 22:15</span
+                                        ><span class="sched-artist"
+                                            >TERRANINE</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO W/ VIOLIN</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >22:15 – 22:30</span
+                                        ><span class="sched-artist"
+                                            >SETUP BREAK</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >22:30 – 00:00</span
+                                        ><span class="sched-artist"
+                                            >WILD FREQUENCY</span
+                                        ><span class="sched-style"
+                                            >SACRED BASS CEREMONY</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >00:00 – 01:00</span
+                                        ><span class="sched-artist"
+                                            >SERRATONIN</span
+                                        ><span class="sched-style"
+                                            >WORLD TECH HOUSE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >01:00 – 02:00</span
+                                        ><span class="sched-artist"
+                                            >RICH PARKER</span
+                                        ><span class="sched-style"
+                                            >CHILL HOUSE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:00 – 03:30</span
+                                        ><span class="sched-artist">I B2B</span
+                                        ><span class="sched-style"
+                                            >BASS ECLECTICA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >03:30 – 05:00</span
+                                        ><span class="sched-artist"
+                                            >GLOWING TREES</span
+                                        ><span class="sched-style"
+                                            >BASS/DUB</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:00 – 06:00</span
+                                        ><span class="sched-artist"
+                                            >4TH SHAMAN</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >06:00 – 07:00</span
+                                        ><span class="sched-artist">ZÆNTH</span
+                                        ><span class="sched-style"
+                                            >MELODIC</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d2-pulse-stage" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >00:30 – 02:00</span
+                                        ><span class="sched-artist"
+                                            >FRAIMBZ</span
+                                        ><span class="sched-style"
+                                            >HYPNOTIC TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:00 – 03:30</span
+                                        ><span class="sched-artist">UDAY</span
+                                        ><span class="sched-style"
+                                            >HYPNOTIC TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >03:30 – 05:00</span
+                                        ><span class="sched-artist">ARTEK</span
+                                        ><span class="sched-style"
+                                            >PEAK TIME</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:00 – 06:30</span
+                                        ><span class="sched-artist">CAIUS</span
+                                        ><span class="sched-style">TRIBE</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >06:30 – 11:00</span
+                                        ><span class="sched-artist">BREAK</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:00 – 12:30</span
+                                        ><span class="sched-artist"
+                                            >SOUL PIXIE</span
+                                        ><span class="sched-style"
+                                            >LIQUID D&amp;B</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:30 – 14:00</span
+                                        ><span class="sched-artist"
+                                            >MONTAÑA AZUL</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO / TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:00 – 15:30</span
+                                        ><span class="sched-artist">VNESS</span
+                                        ><span class="sched-style"
+                                            >PROGRESSIVE PSYTECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >15:30 – 17:00</span
+                                        ><span class="sched-artist">1TRIBE</span
+                                        ><span class="sched-style"
+                                            >TRIBAL BASS</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >17:00 – 18:30</span
+                                        ><span class="sched-artist">ADEUS</span
+                                        ><span class="sched-style"
+                                            >PSYTECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >18:30 – 20:00</span
+                                        ><span class="sched-artist">PINO</span
+                                        ><span class="sched-style">TECHNO</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:00 – 21:30</span
+                                        ><span class="sched-artist">DI SUN</span
+                                        ><span class="sched-style">TECHNO</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:30 – 23:00</span
+                                        ><span class="sched-artist">HABER</span
+                                        ><span class="sched-style">PROG</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >23:00 – 00:30</span
+                                        ><span class="sched-artist"
+                                            >INNER PULSE</span
+                                        ><span class="sched-style">TECHNO</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d2-aion-workshops" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >09:00 – 10:00</span
+                                        ><span class="sched-artist"
+                                            >POWER VINYASA YOGA FLOW</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >10:15 – 11:45</span
+                                        ><span class="sched-artist"
+                                            >THE ART OF LETTING GO</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:00 – 13:00</span
+                                        ><span class="sched-artist"
+                                            >THE AYURVEDA LIFESTYLE</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >13:15 – 14:45</span
+                                        ><span class="sched-artist"
+                                            >SOUNDJOURNEY WITH AKASHIC
+                                            RECORDS</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >15:00 – 16:30</span
+                                        ><span class="sched-artist"
+                                            >NGOMA: TRANCE STATES OF BANTU
+                                            AFRICA</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >16:45 – 18:30</span
+                                        ><span class="sched-artist"
+                                            >MUSIC PRODUCTION WORKSHOP</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d2-circus-workshops" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:00 – 12:00</span
+                                        ><span class="sched-artist"
+                                            >FLOW WITH POIS (LEVEL
+                                            BEGINNER)</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:15 – 13:45</span
+                                        ><span class="sched-artist"
+                                            >ROPEDART – A NEW BEGINNING (LEVEL
+                                            BEGINNER)</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:00 – 15:30</span
+                                        ><span class="sched-artist"
+                                            >INTERMEDIATE POI – STALLS TECH AND
+                                            CONTACT INTRO</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d2-tribal-workshops" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:00 – 12:30</span
+                                        ><span class="sched-artist"
+                                            >INNER TRUTH FOR MEN – A 7 DAY
+                                            CHALLENGE</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:45 – 13:45</span
+                                        ><span class="sched-artist"
+                                            >KIDS DRUM FUN (DRUMMING
+                                            CIRCLE)</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:00 – 16:00</span
+                                        ><span class="sched-artist"
+                                            >SOUL BONSAI: CREATIVE WRITING FOR
+                                            PERSONAL GROWTH &amp; HEALING</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >16:15 – 17:45</span
+                                        ><span class="sched-artist"
+                                            >AFTER THE TRIP: NZ PLANTS &amp;
+                                            MUSHROOMS</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- ===== DAY 3 – SUNDAY MAR 1 ===== -->
+                    <details class="sched-day">
+                        <summary class="sched-day-header">
+                            <span class="sched-day-label">Day 3</span>
+                            <span class="sched-day-date display-font-sm"
+                                >Sunday, Mar 1</span
+                            >
+                            <span class="sched-day-badge">Full Day</span>
+                        </summary>
+                        <div class="sched-day-content">
+                            <div class="stage-tabs">
+                                <button
+                                    class="stage-tab-btn active"
+                                    onclick="
+                                        switchTab(this, 'd3', 'main-stage')
+                                    "
+                                >
+                                    MAIN STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd3', 'aion-stage')
+                                    "
+                                >
+                                    AION STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd3', 'pulse-stage')
+                                    "
+                                >
+                                    PULSE STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd3', 'aion-workshops')
+                                    "
+                                >
+                                    AION WORKSHOPS
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(
+                                            this,
+                                            'd3',
+                                            'circus-workshops',
+                                        )
+                                    "
+                                >
+                                    CIRCUS WORKSHOPS
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(
+                                            this,
+                                            'd3',
+                                            'tribal-workshops',
+                                        )
+                                    "
+                                >
+                                    TRIBAL ZONE WORKSHOPS
+                                </button>
+                            </div>
+
+                            <div id="d3-main-stage" class="stage-panel active">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >00:30 – 02:00</span
+                                        ><span class="sched-artist">UPAVAS</span
+                                        ><span class="sched-style"
+                                            >NIGHT FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:00 – 03:30</span
+                                        ><span class="sched-artist"
+                                            >ACOUSMA</span
+                                        ><span class="sched-style"
+                                            >NIGHT FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >03:30 – 05:00</span
+                                        ><span class="sched-artist"
+                                            >BANJAHKS</span
+                                        ><span class="sched-style"
+                                            >TWILIGHT</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:00 – 06:30</span
+                                        ><span class="sched-artist"
+                                            >MOTA BHAI</span
+                                        ><span class="sched-style"
+                                            >TWILIGHT</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >06:30 – 08:00</span
+                                        ><span class="sched-artist">BABA</span
+                                        ><span class="sched-style">FOREST</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >08:00 – 09:30</span
+                                        ><span class="sched-artist">HABER</span
+                                        ><span class="sched-style"
+                                            >PROG / PSY TECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >09:30 – 11:00</span
+                                        ><span class="sched-artist"
+                                            >TERRANINE IN PSY</span
+                                        ><span class="sched-style">PROG</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:00 – 13:00</span
+                                        ><span class="sched-artist"
+                                            >NATURAL DISASTER</span
+                                        ><span class="sched-style"
+                                            >FREAK HI-TECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >13:00 – 14:30</span
+                                        ><span class="sched-artist"
+                                            >AKASHIC RECORDS</span
+                                        ><span class="sched-style">PROG</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:30 – 16:00</span
+                                        ><span class="sched-artist"
+                                            >ASHWYNZ</span
+                                        ><span class="sched-style">PROG</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >16:00 – 17:30</span
+                                        ><span class="sched-artist"
+                                            >DARSCENT</span
+                                        ><span class="sched-style"
+                                            >DARK PROG</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >17:30 – 19:00</span
+                                        ><span class="sched-artist">MALLKI</span
+                                        ><span class="sched-style"
+                                            >DARK PROG</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >19:00 – 20:30</span
+                                        ><span class="sched-artist"
+                                            >ABNORMA</span
+                                        ><span class="sched-style"
+                                            >FOREST PROG</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:30 – 21:30</span
+                                        ><span class="sched-artist"
+                                            >SIMIANTICS</span
+                                        ><span class="sched-style"
+                                            >NIGHT FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:30 – 22:30</span
+                                        ><span class="sched-artist">ENJIN</span
+                                        ><span class="sched-style"
+                                            >NIGHT FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >22:30 – 01:00</span
+                                        ><span class="sched-artist"
+                                            >GLACIAL</span
+                                        ><span class="sched-style"
+                                            >NIGHT FULL ON</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d3-aion-stage" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >19:00 – 20:00</span
+                                        ><span class="sched-artist"
+                                            >LOVERAY</span
+                                        ><span class="sched-style"
+                                            >LIVE LOOPS</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:00 – 21:00</span
+                                        ><span class="sched-artist"
+                                            >AMY &amp; JEAN</span
+                                        ><span class="sched-style"
+                                            >ELECTRONICA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:00 – 22:30</span
+                                        ><span class="sched-artist">AQUILA</span
+                                        ><span class="sched-style"
+                                            >ORGANIC &amp; DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >22:30 – 23:30</span
+                                        ><span class="sched-artist"
+                                            >1TRIBE &amp; J WILLOW</span
+                                        ><span class="sched-style"
+                                            >TRIBAL BASS</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >23:30 – 01:00</span
+                                        ><span class="sched-artist"
+                                            >FELIX ANDO</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >01:00 – 02:00</span
+                                        ><span class="sched-artist">MALLKI</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:00 – 03:00</span
+                                        ><span class="sched-artist"
+                                            >MONTANA AZUL</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >03:00 – 04:00</span
+                                        ><span class="sched-artist">VOLPAR</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >04:00 – 05:00</span
+                                        ><span class="sched-artist"
+                                            >JOZAY SOZE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:00 – 06:00</span
+                                        ><span class="sched-artist">MONKI</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >06:00 – 07:00</span
+                                        ><span class="sched-artist">SWISHA</span
+                                        ><span class="sched-style"
+                                            >AMBIENT BASS</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >07:00 – 08:00</span
+                                        ><span class="sched-artist"
+                                            >MOJO FILTER</span
+                                        ><span class="sched-style"
+                                            >DOWNTEMPO</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d3-pulse-stage" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >00:30 – 02:00</span
+                                        ><span class="sched-artist"
+                                            >EBONY WILLIS</span
+                                        ><span class="sched-style"
+                                            >TEK/TRIBE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:00 – 03:30</span
+                                        ><span class="sched-artist">IKONA</span
+                                        ><span class="sched-style">PRIMAL</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >03:30 – 05:00</span
+                                        ><span class="sched-artist">COSMIK</span
+                                        ><span class="sched-style">TEKNO</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:00 – 06:30</span
+                                        ><span class="sched-artist">NANI</span
+                                        ><span class="sched-style"
+                                            >TEK HALF TIME</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >06:30 – 08:00</span
+                                        ><span class="sched-artist"
+                                            >CAALI FLOWER</span
+                                        ><span class="sched-style"
+                                            >ORGANIC HOUSE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >08:00 – 09:30</span
+                                        ><span class="sched-artist">KAITO</span
+                                        ><span class="sched-style"
+                                            >ORGANIC HOUSE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >09:30 – 11:00</span
+                                        ><span class="sched-artist">JAMZY</span
+                                        ><span class="sched-style"
+                                            >PSYTECH/DNB</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:00 – 12:30</span
+                                        ><span class="sched-artist"
+                                            >TOM SAWYER</span
+                                        ><span class="sched-style"
+                                            >PSYTECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:30 – 14:00</span
+                                        ><span class="sched-artist"
+                                            >ELEUVEITE</span
+                                        ><span class="sched-style"
+                                            >PSYTECH</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:00 – 15:30</span
+                                        ><span class="sched-artist">NICCO</span
+                                        ><span class="sched-style">TRANCE</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >15:30 – 17:00</span
+                                        ><span class="sched-artist">PUNGA</span
+                                        ><span class="sched-style">GARAGE</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >17:00 – 18:30</span
+                                        ><span class="sched-artist">SWISHA</span
+                                        ><span class="sched-style"
+                                            >BASS TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >18:30 – 20:00</span
+                                        ><span class="sched-artist">LAULAU</span
+                                        ><span class="sched-style"
+                                            >GROOVE TEKNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >20:00 – 21:30</span
+                                        ><span class="sched-artist">MYSTIQ</span
+                                        ><span class="sched-style"
+                                            >DEEP/HYPNOTIC</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >21:30 – 23:00</span
+                                        ><span class="sched-artist"
+                                            >ELE LUZ</span
+                                        ><span class="sched-style"
+                                            >PSYCHEDELIC TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >23:00 – 00:30</span
+                                        ><span class="sched-artist">NØVEK</span
+                                        ><span class="sched-style"
+                                            >HYPNOTIC / PSYCHEDELIC</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d3-aion-workshops" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >09:00 – 10:00</span
+                                        ><span class="sched-artist"
+                                            >FROM BASS TO BREATH: FLOW &amp;
+                                            AWARENESS (YOGA)</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >10:15 – 11:45</span
+                                        ><span class="sched-artist"
+                                            >META BREATHWORK</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:00 – 13:30</span
+                                        ><span class="sched-artist"
+                                            >GET MORE OF WHAT YOU WANT BY
+                                            TRUSTING YOUR HEART</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >13:45 – 15:15</span
+                                        ><span class="sched-artist"
+                                            >THE SHIFT IN CONSCIOUSNESS &amp;
+                                            LORE</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >15:30 – 16:30</span
+                                        ><span class="sched-artist"
+                                            >BACK TO THE BODY</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >16:45 – 18:15</span
+                                        ><span class="sched-artist"
+                                            >CREATING HEALTH AND VITALITY WHILE
+                                            FINDING YOUR TRUE PURPOSE</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d3-circus-workshops" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:00 – 12:00</span
+                                        ><span class="sched-artist"
+                                            >HOOPING ISOLATIONS WORKSHOP
+                                            (BEGINNER → INTERMEDIATE)</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:30 – 13:30</span
+                                        ><span class="sched-artist"
+                                            >INTERMEDIATE DRAGON STAFF</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:00 – 15:30</span
+                                        ><span class="sched-artist"
+                                            >ADVANCED POI &amp;
+                                            INTERMEDIATE</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d3-tribal-workshops" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:00 – 12:30</span
+                                        ><span class="sched-artist"
+                                            >CLIMAX CHOICE – A 7 DAY
+                                            CHALLENGE</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:45 – 14:15</span
+                                        ><span class="sched-artist"
+                                            >FULL BODY CLAY FIRE CEREMONY</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:30 – 15:30</span
+                                        ><span class="sched-artist"
+                                            >PSYCHEDELIC ASSISTED THERAPY – INS
+                                            AND OUTS</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >15:45 – 17:15</span
+                                        ><span class="sched-artist"
+                                            >SAN PEDRO, AYAHUASCA, MUSHROOM VS
+                                            SYNTHETIC DRUGS</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >19:00 – 20:30</span
+                                        ><span class="sched-artist"
+                                            >AFRICAN DRUMMING</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- ===== DAY 4 – MONDAY MAR 2 ===== -->
+                    <details class="sched-day">
+                        <summary class="sched-day-header">
+                            <span class="sched-day-label">Day 4</span>
+                            <span class="sched-day-date display-font-sm"
+                                >Monday, Mar 2</span
+                            >
+                            <span class="sched-day-badge">Final Day</span>
+                        </summary>
+                        <div class="sched-day-content">
+                            <div class="stage-tabs">
+                                <button
+                                    class="stage-tab-btn active"
+                                    onclick="
+                                        switchTab(this, 'd4', 'main-stage')
+                                    "
+                                >
+                                    MAIN STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd4', 'pulse-stage')
+                                    "
+                                >
+                                    PULSE STAGE
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(this, 'd4', 'aion-workshops')
+                                    "
+                                >
+                                    AION WORKSHOPS
+                                </button>
+                                <button
+                                    class="stage-tab-btn"
+                                    onclick="
+                                        switchTab(
+                                            this,
+                                            'd4',
+                                            'tribal-workshops',
+                                        )
+                                    "
+                                >
+                                    TRIBAL ZONE WORKSHOPS
+                                </button>
+                            </div>
+
+                            <div id="d4-main-stage" class="stage-panel active">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >01:00 – 02:30</span
+                                        ><span class="sched-artist">JATAYU</span
+                                        ><span class="sched-style"
+                                            >TWILIGHT</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:30 – 04:00</span
+                                        ><span class="sched-artist">SAPIAN</span
+                                        ><span class="sched-style"
+                                            >FORREST</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >04:00 – 05:30</span
+                                        ><span class="sched-artist"
+                                            >JUNKEY MONKEY</span
+                                        ><span class="sched-style"
+                                            >FORREST</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:30 – 07:00</span
+                                        ><span class="sched-artist"
+                                            >YONDO AND LORCA</span
+                                        ><span class="sched-style"
+                                            >TWILIGHT</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >07:00 – 08:00</span
+                                        ><span class="sched-artist">TURIYA</span
+                                        ><span class="sched-style"
+                                            >NIGHT FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >08:00 – 09:30</span
+                                        ><span class="sched-artist"
+                                            >FULL AUM</span
+                                        ><span class="sched-style"
+                                            >FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >09:30 – 11:00</span
+                                        ><span class="sched-artist"
+                                            >MUTANA KATARO</span
+                                        ><span class="sched-style"
+                                            >FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >11:00 – 12:30</span
+                                        ><span class="sched-artist"
+                                            >PSYBEAR</span
+                                        ><span class="sched-style"
+                                            >FULL ON</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >12:30 – 14:30</span
+                                        ><span class="sched-artist"
+                                            >MASH UP</span
+                                        ><span class="sched-style"
+                                            >ALL OF IT</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >14:30 – 15:00</span
+                                        ><span class="sched-artist"
+                                            >CLOSING CEREMONY</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time">15:00</span
+                                        ><span class="sched-artist"
+                                            >STAGE CLOSE</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d4-pulse-stage" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >00:30 – 02:00</span
+                                        ><span class="sched-artist">VORPAL</span
+                                        ><span class="sched-style"
+                                            >HYPNOTIC / PRIMAL</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >02:00 – 03:30</span
+                                        ><span class="sched-artist"
+                                            >HABER TECHNO</span
+                                        ><span class="sched-style"
+                                            >TEK / TRIBE</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >03:30 – 05:00</span
+                                        ><span class="sched-artist">FLIPIT</span
+                                        ><span class="sched-style"
+                                            >HYPNOTIC TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >05:00 – 06:30</span
+                                        ><span class="sched-artist">NOGR</span
+                                        ><span class="sched-style"
+                                            >DARK TEKNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >06:30 – 07:30</span
+                                        ><span class="sched-artist"
+                                            >NU PHOBIA</span
+                                        ><span class="sched-style"
+                                            >SWAMP TECHNO</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >07:30 – 09:00</span
+                                        ><span class="sched-artist">MONKI</span
+                                        ><span class="sched-style"
+                                            >DEEP/ORGANIC</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >09:00 – 10:00</span
+                                        ><span class="sched-artist">SKUJA</span
+                                        ><span class="sched-style"
+                                            >LIVE IMPROV</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >10:00 – 11:30</span
+                                        ><span class="sched-artist"
+                                            >NANDARIL</span
+                                        ><span class="sched-style">TEK</span>
+                                    </li>
+                                    <li>
+                                        <span class="sched-time">11:30</span
+                                        ><span class="sched-artist">B2B</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d4-aion-workshops" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >09:30 – 10:30</span
+                                        ><span class="sched-artist"
+                                            >ACRODANCEFLY</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="sched-time"
+                                            >10:45 – 12:15</span
+                                        ><span class="sched-artist"
+                                            >CACAO CEREMONY</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="d4-tribal-workshops" class="stage-panel">
+                                <ul class="sched-list">
+                                    <li>
+                                        <span class="sched-time"
+                                            >10:00 – 12:00</span
+                                        ><span class="sched-artist"
+                                            >AUTHENTIC RELATING</span
+                                        ><span class="sched-style"
+                                            >TBA</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img
+                        class="footer-logo"
+                        src="images/YatraMeshLogo.png"
+                        alt=""
+                    />
+                    <div>
+                        <div class="footer-name">Yatra Mesh</div>
+                        <div class="footer-copy">
+                            © 2026 Yatra Festival · Experimental Captive Portal
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a class="footer-link" href="./index.html">Home</a
+                    ><a class="footer-link" href="./schedule.html">Schedule</a
+                    ><a class="footer-link" href="./help.html">Help</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            function switchTab(btn, dayId, stageId) {
+                const dayEl = btn.closest(".sched-day-content");
+                dayEl
+                    .querySelectorAll(".stage-tab-btn")
+                    .forEach((b) => b.classList.remove("active"));
+                dayEl
+                    .querySelectorAll(".stage-panel")
+                    .forEach((p) => p.classList.remove("active"));
+                btn.classList.add("active");
+                document
+                    .getElementById(dayId + "-" + stageId)
+                    .classList.add("active");
+            }
+
+            // Auto-open current day
+            (function() {
+                const dayDates = [
+                    { date: new Date(2026, 1, 27), idx: 0 }, // Feb 27 Day 1
+                    { date: new Date(2026, 1, 28), idx: 1 }, // Feb 28 Day 2
+                    { date: new Date(2026, 2,  1), idx: 2 }, // Mar 1  Day 3
+                    { date: new Date(2026, 2,  2), idx: 3 }, // Mar 2  Day 4
+                ];
+                const today = new Date();
+                today.setHours(0,0,0,0);
+                const days = document.querySelectorAll("details.sched-day");
+                let matched = false;
+                dayDates.forEach(function(d) {
+                    d.date.setHours(0,0,0,0);
+                    if (!matched && today.getTime() === d.date.getTime()) {
+                        if (days[d.idx]) days[d.idx].setAttribute("open", "");
+                        matched = true;
+                    }
+                });
+                // If within festival range but no exact match (night overflow), open first day
+                if (!matched && today >= dayDates[0].date && today <= dayDates[dayDates.length-1].date) {
+                    if (days[0]) days[0].setAttribute("open", "");
+                }
+            })();
+        </script>
+    </body>
 </html>
