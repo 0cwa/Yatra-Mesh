@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "generate-site": "node scripts/render-project.mjs",
     "build:gh-pages": "node scripts/build-github-pages.mjs",
-    "build:pi": "node scripts/build-pi.mjs"
+    "build:pi": "node scripts/build-pi.mjs",
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "@grapesjs/studio-sdk": "^1.0.58",
