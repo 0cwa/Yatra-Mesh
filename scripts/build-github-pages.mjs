@@ -192,6 +192,13 @@ async function main() {
     }
   }
 
+  // Preserve the custom domain on GitHub Pages.
+  const cnamePath = path.join(siteDir, 'CNAME')
+  if (fs.existsSync(cnamePath)) {
+    fs.copyFileSync(cnamePath, path.join(outDir, 'CNAME'))
+    console.log('[gh-pages] Copied CNAME')
+  }
+
   // Prevent GitHub Pages from running Jekyll on the output
   fs.writeFileSync(path.join(outDir, '.nojekyll'), '')
 
