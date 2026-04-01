@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-BRANCH="deploy"
+BRANCH="gh-pages"
 DEPLOY_DIR=$(mktemp -d)
 
 cleanup() {
@@ -16,7 +16,7 @@ npm run build
 
 echo "🌿  Preparing '$BRANCH' branch..."
 
-# Check if the deploy branch already exists locally or on the remote
+# Check if the GitHub Pages branch already exists locally or on the remote
 LOCAL_EXISTS=$(git show-ref --verify --quiet "refs/heads/$BRANCH" && echo yes || echo no)
 REMOTE_EXISTS=$(git show-ref --verify --quiet "refs/remotes/origin/$BRANCH" && echo yes || echo no)
 
